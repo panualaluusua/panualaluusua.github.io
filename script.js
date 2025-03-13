@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            // Here you would typically send the data to a server
-            // For now, we'll just log it to the console
-            console.log('Form submitted:', { name, email, subject, message });
+            // Open email client with pre-filled email
+            const mailtoLink = `mailto:panu.alaluusua@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+            window.location.href = mailtoLink;
             
             // Show a success message (you can replace this with your own logic)
             alert('Thank you for your message! I will get back to you soon.');
