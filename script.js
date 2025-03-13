@@ -141,4 +141,21 @@ document.addEventListener('DOMContentLoaded', function() {
         
         document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
     });
+
+    // Animated counters for the Stats Section
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const increment = target / 200; // Adjust speed by changing the divisor
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCount, 20);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    });
 }); 
