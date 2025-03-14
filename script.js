@@ -158,4 +158,10 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         updateCount();
     });
+
+    // GitHub Calendar Integration
+    GitHubCalendar(".calendar-container", "panualaluusua", { 
+        responsive: true,
+        tooltips: true 
+    });
 }); 
