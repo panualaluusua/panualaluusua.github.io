@@ -290,6 +290,23 @@ nav ul li a:hover {
     font-size: 1.1rem;
 }
 
+.skill-proficiency {
+    display: flex;
+    margin-top: 5px;
+}
+
+.skill-proficiency span {
+    height: 8px;
+    width: 20%;
+    background-color: #e2e8f0;
+    margin-right: 2px;
+    border-radius: 2px;
+}
+
+.skill-proficiency span.filled {
+    background-color: var(--primary-color);
+}
+
 /* Projects Section */
 .projects-grid {
     display: grid;
