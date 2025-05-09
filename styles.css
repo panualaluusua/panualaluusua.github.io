@@ -389,7 +389,6 @@ nav.active li {
     letter-spacing: 0.01em;
 }
 
-
 .skill-proficiency {
     display: flex;
     margin-top: 5px;
@@ -580,82 +579,57 @@ body.dark-mode .project-tech span {
 
 /* Contact Section */
 .contact {
-    background-color: #f8fafc;
+    padding: 80px 0;
+    background: var(--section-bg-color);
 }
 
 .contact-content {
     display: flex;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-.contact-info, .contact-form {
-    flex: 1;
-}
-
-.contact-info h3, .contact-form h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.contact-info p {
-    color: var(--gray-color);
-    margin-bottom: 30px;
+    flex-wrap: wrap; /* Mahdollistaa rivittymisen pienemmillä näytöillä */
+    justify-content: space-around; /* Jakaa tilan tasaisesti */
+    align-items: flex-start; /* Kohdistaa elementit yläreunaan */
+    gap: 40px; /* Väli elementtien välillä */
 }
 
 .contact-details {
-    margin-bottom: 30px;
+    flex: 1;
+    min-width: 280px; /* Minimileveys ennen rivittymistä */
+    text-align: center; /* Keskittää sisällön, kun se on yksinään */
 }
 
-.contact-item {
+.footer-social-links {
+    margin-top: 18px;
     display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.contact-item i {
-    font-size: 1.2rem;
-    color: var(--primary-color);
-    margin-right: 15px;
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-}
-
-.social-links a {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
+    gap: 30px;
 }
 
-.social-links a:hover {
-    background-color: var(--secondary-color);
+.footer-social-links a i {
+    font-size: 2.6em;
+    color: var(--secondary-text-color);
+    transition: color 0.3s, transform 0.3s;
 }
 
-.form-group {
-    margin-bottom: 20px;
+.footer-social-links a:hover i {
+    color: var(--primary-color);
+    transform: scale(1.13);
 }
 
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
+
+.contact-form {
+    flex: 2; /* Lomake vie enemmän tilaa */
+    min-width: 300px; /* Minimileveys ennen rivittymistä */
 }
 
-.form-group textarea {
-    height: 150px;
-    resize: vertical;
+/* Responsive adjustments for contact section if needed */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-details {
+        margin-bottom: 30px;
+    }
 }
 
 /* Footer */
@@ -667,8 +641,10 @@ footer {
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 12px;
 }
 
 .footer-links {
@@ -1073,8 +1049,10 @@ footer {
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 12px;
 }
 
 .footer-links {

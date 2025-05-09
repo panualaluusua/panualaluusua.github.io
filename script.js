@@ -1,3 +1,4 @@
+console.log('Contact form script loaded');
 document.addEventListener('DOMContentLoaded', function() {
     // Set dark mode as default
     document.body.classList.add('dark-mode');
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', async function(e) {
+            console.log('Contact form submitted');
             e.preventDefault();
             const form = e.target;
             const successDiv = document.getElementById('contact-success');
