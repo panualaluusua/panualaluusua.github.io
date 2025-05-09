@@ -33,26 +33,36 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Form submission (you'll need to add your own backend logic)
     const contactForm = document.getElementById('contactForm');
-    
+    const formMessage = document.getElementById('formMessage'); 
+    const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            if (submitButton) submitButton.disabled = true;
+            if (formMessage) formMessage.textContent = 'Sending...';
+            if (formMessage) formMessage.className = 'form-message form-message-sending'; 
+
             // Get form data
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            // Open email client with pre-filled email
-            const mailtoLink = `mailto:panu.alaluusua@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
-            window.location.href = mailtoLink;
-            
-            // Show a success message (you can replace this with your own logic)
-            alert('Thank you for your message! I will get back to you soon.');
-            
-            // Reset the form
-            contactForm.reset();
+            // Simulate a delay for now, replace with actual submission logic
+            setTimeout(() => {
+                const mailtoLink = `mailto:panu.alaluusua@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+                window.location.href = mailtoLink;
+                
+                if (formMessage) {
+                    formMessage.textContent = 'Thank you for your message! If your email client opened, your message is ready to be sent.';
+                    formMessage.className = 'form-message form-message-success';
+                }
+                
+                contactForm.reset();
+                if (submitButton) submitButton.disabled = false;
+            }, 500); 
         });
     }
     
@@ -144,18 +154,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Animated counters for the Stats Section
     const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
+    const speed = 200; 
+
+    const animateCounter = (counter) => {
+        const target = +counter.getAttribute('data-target');
         const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
             const count = +counter.innerText;
-            const increment = target / 200; // Adjust speed by changing the divisor
+            const increment = target / speed;
+
             if (count < target) {
                 counter.innerText = Math.ceil(count + increment);
-                setTimeout(updateCount, 20);
+                setTimeout(updateCount, 20); 
             } else {
                 counter.innerText = target;
             }
         };
         updateCount();
+    };
+
+    const observerOptions = {
+        root: null, 
+        rootMargin: '0px',
+        threshold: 0.5 
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    counters.forEach(counter => {
+        observer.observe(counter);
+        counter.innerText = '0'; 
     });
 }); 

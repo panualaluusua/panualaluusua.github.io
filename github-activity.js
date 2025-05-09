@@ -6,34 +6,46 @@ const githubActivityContentDiv = document.getElementById("github-activity-conten
 
 async function fetchLatestCommit() {
     if (!githubActivityContentDiv) return;
+    githubActivityContentDiv.innerHTML = `<span class="github-activity-loading">Loading latest commit...</span>`; 
     try {
         const response = await fetch(`https://api.github.com/users/${githubUsername}/events/public`);
         if (!response.ok) throw new Error("Failed to fetch GitHub activity");
         const events = await response.json();
-        // Find the first PushEvent (commit)
+        
         const pushEvent = events.find(e => e.type === "PushEvent");
+
         if (!pushEvent) {
-            githubActivityContentDiv.innerHTML = "<span style='font-size:1.2em;'>😅 Looks like Panu is taking a coffee break! No recent commits found.</span>";
+            githubActivityContentDiv.innerHTML = "<span class='github-activity-message'>😅 Looks like Panu is taking a coffee break! No recent public commits found.</span>";
             return;
         }
+
         const repoName = pushEvent.repo.name;
         const commit = pushEvent.payload.commits[pushEvent.payload.commits.length - 1];
         const commitTime = new Date(pushEvent.created_at);
-        // Try to get the commit SHA for the link
         const commitSha = commit.sha || (pushEvent.payload.commits.length === 1 ? pushEvent.payload.head : undefined);
         const commitUrl = commitSha ? `https://github.com/${repoName}/commit/${commitSha}` : `https://github.com/${repoName}`;
+
+        const maxMessageLength = 60;
+        let displayMessage = commit.message.split('\n')[0]; 
+        if (displayMessage.length > maxMessageLength) {
+            displayMessage = displayMessage.substring(0, maxMessageLength) + "...";
+        }
+
         githubActivityContentDiv.innerHTML = `
-            <span style="display:inline-flex;align-items:center;gap:5px;vertical-align:middle;">
-                <span style="display:inline-block;width:10px;height:10px;background:#34d058;border-radius:2px;margin-right:4px;vertical-align:middle;"></span>
-                <a href="https://github.com/${repoName}" target="_blank" style="color:#23408e;font-weight:500;font-size:0.98em;text-decoration:none;vertical-align:middle;transition:color 0.2s;">${repoName}</a>
-            </span>
-            <span style='display:block;font-size:0.98em;color:#555;margin-top:2px;'>
-                <a href="${commitUrl}" target="_blank" style="color:#059669;text-decoration:none;font-weight:400;transition:color 0.2s;">${commit.message}</a>
-            </span>
-            <span style='display:block;font-size:0.92em;color:#888;margin-top:1px;'>${commitTime.toLocaleString()}</span>
+            <div class="github-activity-item">
+                <span class="github-activity-repo-line">
+                    <span class="github-activity-indicator"></span>
+                    <a href="https://github.com/${repoName}" target="_blank" class="github-repo-link">${repoName}</a>
+                </span>
+                <span class="github-activity-message-line">
+                    <a href="${commitUrl}" target="_blank" class="github-commit-link">${displayMessage}</a>
+                </span>
+                <span class="github-commit-time">${commitTime.toLocaleString()}</span>
+            </div>
         `;
     } catch (error) {
-        githubActivityContentDiv.innerHTML = "<span style='font-size:1.2em;'>Couldn't fetch the latest commit.</span>";
+        console.error("GitHub Activity Error:", error); 
+        githubActivityContentDiv.innerHTML = "<span class='github-activity-error'>Couldn't fetch the latest commit. Please check back later.</span>";
     }
 }
 
