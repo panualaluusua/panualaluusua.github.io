@@ -10,7 +10,6 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Add this right after the opening body tag -->
     <div class="scroll-progress"></div>
 
     <!-- Header -->
@@ -25,6 +24,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#work-experience">Work Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn primary-btn">View My Work</a>
-                    <a href="#" class="btn secondary-btn"><i class="fas fa-file-download"></i> Download Resume</a>
+                    <a href="Panu_Alaluusua_CV.md" class="btn secondary-btn" download><i class="fas fa-file-download"></i> Download Resume</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -63,7 +63,7 @@
                 <div class="placeholder-image">Professional Headshot</div>
             </div>
             <div class="hero-badge">
-                <a href="#" class="resume-badge">
+                <a href="Panu_Alaluusua_CV.md" class="resume-badge" download>
                     <i class="fas fa-file-alt"></i>
                     <span>Resume</span>
                 </a>
@@ -71,7 +71,6 @@
         </div>
     </section>
 
-    <!-- Add after hero section -->
     <div class="section-divider"></div>
 
     <!-- Projects Section -->
@@ -98,71 +97,54 @@
             </div>
             
             <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card" data-category="data-engineering">
-                    <div class="project-image">
-                        <!-- Replace with project image -->
-                        <div class="placeholder-image">Data Pipeline Image</div>
-                    </div>
+                <!-- Project 1: Modern Data Platform -->
+                <div class="project-card" data-category="data">
+                    <div class="placeholder-image" style="height: 200px; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #757575; font-size: 1.2em;">Project Image Placeholder</div>
                     <div class="project-info">
-                        <h3>Enterprise Data Platform</h3>
-                        <p><strong>Challenge:</strong> Client needed to consolidate data from 12+ source systems with 30TB of historical data.</p>
-                        <p><strong>Solution:</strong> Designed and implemented a Databricks Lakehouse architecture with medallion approach, using Azure Data Factory for orchestration and DBT for transformation.</p>
-                        <p><strong>Results:</strong> Reduced reporting time from 24+ hours to under 2 hours, enabled self-service analytics for 200+ business users, and decreased infrastructure costs by 35%.</p>
-                        <div class="project-tags">
-                            <span>Databricks</span>
-                            <span>Azure</span>
-                            <span>DBT</span>
-                            <span>PySpark</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn small-btn"><i class="fas fa-eye"></i> View Details</a>
-                        </div>
+                        <h3>Development and Management of a Modern Data Platform for a Confidential Client</h3>
+<!-- No date shown -->
+<div class="project-details-segment">
+    <h4>Challenge & Purpose:</h4>
+    <p>To enable a large organization to modernize and streamline its data operations, improve reporting, and support agile business needs through a scalable data platform.</p>
+</div>
+<div class="project-details-segment">
+    <h4>Solution & Benefits:</h4>
+    <p>Implemented a robust and flexible data platform that enhanced the organization’s ability to manage, process, and utilize data efficiently. The solution improved data accessibility, reporting capabilities, and supported the adoption of modern development practices.</p>
+</div>
+<div class="project-details-segment">
+    <h4>My Role:</h4>
+    <p>Responsible for designing and building secure, cloud-based data services, developing user and access management features, maintaining the platform, and optimizing data flows. Translated business requirements into technical solutions and contributed to the development of data-driven products.</p>
+</div>
+<!-- Technologies omitted for anonymity -->
+                        <a href="#" class="btn project-link">Read More (Placeholder)</a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Specialized Finance & Investing Data Platform -->
+                <div class="project-card" data-category="data">
+                    <div class="placeholder-image" style="height: 200px; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #757575; font-size: 1.2em;">Project Image Placeholder</div>
+                    <div class="project-info">
+                        <h3>Specialized Data Solution for a Private Sector Client</h3>
+<!-- No date shown -->
+<div class="project-details-segment">
+    <h4>Challenge & Purpose:</h4>
+    <p>Tasked with extending and tailoring a data platform to meet evolving business needs, including the modernization of legacy data processes and improvement of analytics and reporting.</p>
+</div>
+<div class="project-details-segment">
+    <h4>Solution & Benefits:</h4>
+    <p>Collaborated to create an isolated data environment for sensitive business operations, migrated and optimized data flows, and enabled more agile development and analytics practices.</p>
+</div>
+<div class="project-details-segment">
+    <h4>My Role:</h4>
+    <p>Took end-to-end responsibility for the implementation and enhancement of data-driven solutions. Led integration work, data flow construction, platform maintenance, and migration of critical data assets.</p>
+</div>
+<!-- Technologies omitted for anonymity -->
+                        <a href="#" class="btn project-link">Read More (Placeholder)</a>
                     </div>
                 </div>
                 
-                <!-- Project 2 -->
-                <div class="project-card" data-category="analytics research">
-                    <div class="project-image">
-                        <!-- Replace with project image -->
-                        <div class="placeholder-image">Analytics Image</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Academic Analytics Research</h3>
-                        <p>Researched academic analytics and BI solutions for higher education.</p>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>Data Mining</span>
-                            <span>Machine Learning</span>
-                            <span>Visualization</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn small-btn"><i class="fas fa-eye"></i> View Research</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card" data-category="research">
-                    <div class="project-image">
-                        <!-- Replace with project image -->
-                        <div class="placeholder-image">Simulation Image</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Education Financing Simulation</h3>
-                        <p>Developed a simulation model linking education delivery with financing strategies (Master's thesis).</p>
-                        <div class="project-tags">
-                            <span>R</span>
-                            <span>Statistical Modeling</span>
-                            <span>Simulation</span>
-                            <span>Financial Analysis</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn small-btn"><i class="fas fa-eye"></i> View Project</a>
-                            <a href="#" class="btn small-btn"><i class="fas fa-file-alt"></i> Read Thesis</a>
-                        </div>
-                    </div>
-                </div>
+                <!-- Add more project cards here as needed -->
+
             </div>
         </div>
     </section>
@@ -223,42 +205,66 @@
                 </div>
                 
                 <div class="skill-category">
-                    <h3>Programming & Tools</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-python"></i></div>
-                            <h4>Python</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-database"></i></div>
-                            <h4>SQL</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-r-project"></i></div>
-                            <h4>R</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
-                            <h4>Azure</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
-                            <h4>Git</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-code"></i></div>
-                            <h4>DevOps</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-brain"></i></div>
-                            <h4>Machine Learning</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
-                            <h4>Data Visualization</h4>
-                        </div>
-                    </div>
-                </div>
+    <h3>Programming & Tools</h3>
+    <div class="skills-grid">
+        <div class="skill-item">
+            <div class="skill-icon"><i class="fab fa-python"></i></div>
+            <h4>Python</h4>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon"><i class="fas fa-database"></i></div>
+            <h4>SQL</h4>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon"><i class="fab fa-r-project"></i></div>
+            <h4>R</h4>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+            <h4>Azure</h4>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+            <h4>Git</h4>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <h4>DevOps</h4>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon"><i class="fas fa-brain"></i></div>
+            <h4>Machine Learning</h4>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+            <h4>Data Visualization</h4>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon"><i class="fas fa-server"></i></div>
+            <h4>SQL Servers</h4>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
+            <h4>Jira</h4>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon"><i class="fas fa-book"></i></div>
+            <h4>Confluence</h4>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon"><i class="fas fa-database"></i></div>
+            <h4>Alation</h4>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
+            <h4>Application Insights</h4>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+            <h4>Risk & Performance Data Products</h4>
+        </div>
+    </div>
+</div>
                 
                 <div class="skill-category">
                     <h3>Finance & Analytics</h3>
@@ -331,7 +337,6 @@
         </div>
     </section>
 
-    <!-- Add after skills section -->
     <div class="section-divider"></div>
 
     <!-- Certifications Section -->
@@ -353,6 +358,44 @@
                     </div>
                 </div>
                 <!-- You can add more certifications here as you earn them -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="work-experience" class="work-experience-section">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-date">3/2021 – Present</div>
+                    <div class="experience-content">
+                        <h3>Data Engineer</h3>
+                        <span class="company">SOLITA</span>
+                        <p>My current role is a mix of Platform / Data Engineer. Experienced in modern data platform paradigms, including DataOps, data lake architecture, streaming solutions, GDPR compliance and data platform administration. Skilled in data development using PySpark. Got exposure to Bash, Scala, YAML, and Bicep scripting.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-date">8/2020 – 12/2020</div>
+                    <div class="experience-content">
+                        <h3>Doctoral Student</h3>
+                        <span class="company">University of Oulu</span>
+                        <p>Worked for Computer Science and Engineering department with a mission of researching data mining & learning analytics solutions used in Higher Education. The aim was to publish. Other responsibilities included acting as course assistant for a basics level Python course.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-date">5/2019 – 8/2020</div>
+                    <div class="experience-content">
+                        <h3>Research Assistant (Part-time)</h3>
+                        <span class="company">University of Oulu</span>
+                        <p>Worked part-time for Computer Science and Engineering department conducting learning analytics. The work included data preprocessing, data analysis, and advanced analytics. Also did a fair amount of ad hoc analysis and visualizations. Gained experience on R-programming, variety of analysis methods & algorithms, project reporting, and requirement gathering. Master's thesis: Simulated student flow linked with universities financing model.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -405,21 +448,19 @@
                 </div>
                 <div class="contact-form">
                     <h3>Send Me a Message</h3>
-                    <form id="contactForm" action="https://formspree.io/f/panu.alaluusua@gmail.com" method="POST">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn primary-btn">Send Message</button>
-                    </form>
+                    <form id="contactForm" action="https://formspree.io/f/xdkgdzvw" method="POST" style="max-width: 430px; margin: 0 auto; background: #151e27; padding: 32px 24px 24px 24px; border-radius: 28px;">
+    <label for="name" style="color: #fff; font-size: 1.15em; font-weight: 400; margin-bottom: 6px; display: block;">Name</label>
+    <input type="text" id="name" name="name" placeholder="Name" required style="width: 100%; background: #292d3e; color: #e8eaf6; border: none; border-radius: 8px; padding: 14px 12px; margin-bottom: 18px; font-size: 1.08em;">
+
+    <label for="email" style="color: #fff; font-size: 1.15em; font-weight: 400; margin-bottom: 6px; display: block;">Email</label>
+    <input type="email" id="email" name="email" placeholder="Email" required style="width: 100%; background: #292d3e; color: #e8eaf6; border: none; border-radius: 8px; padding: 14px 12px; margin-bottom: 18px; font-size: 1.08em;">
+
+    <label for="message" style="color: #fff; font-size: 1.15em; font-weight: 400; margin-bottom: 6px; display: block;">Message</label>
+    <textarea id="message" name="message" placeholder="Message..." required rows="4" style="width: 100%; background: #292d3e; color: #e8eaf6; border: none; border-radius: 8px; padding: 14px 12px; margin-bottom: 18px; font-size: 1.08em;"></textarea>
+
+    <button type="submit" style="width: 140px; background: none; border: 2px solid #7ca9d6; color: #b9cbe7; font-size: 1.13em; font-weight: 600; border-radius: 8px; padding: 10px 0; cursor: pointer; margin-top: 8px; transition: background 0.2s, color 0.2s;">Submit</button>
+    <div id="contact-success" style="margin-top: 14px; color: #4eb3f7; font-weight: 500;"></div>
+</form>
                 </div>
             </div>
         </div>

@@ -14,17 +14,14 @@ Nämä tehtävät vaativat sinun panostasi portfolion viimeistelemiseksi. Ne on 
     *   **Kohdat:** Projektikorttien placeholder-kuvat (esim. `<div class="placeholder-image">Data Pipeline Image</div>` rivi ~93, `Analytics Image` rivi ~113, `Simulation Image` rivi ~130).
     *   **Tehtävä:** Korvaa placeholderit relevanteilla kuvilla tai grafiikoilla, jotka edustavat kutakin projektia. Esimerkiksi: `<img src="assets/images/project-data-platform.jpg" alt="Enterprise Data Platform">`.
 
-3.  **Päivitä Ansioluettelon Latauslinkki:**
-    *   **Tiedosto:** `index.html`
-    *   **Kohdat:** `<a href="#" class="btn secondary-btn"><i class="fas fa-file-download"></i> Download Resume</a>` (rivi ~46) ja `<a href="#" class="resume-badge">...Resume...</a>` (rivi ~55).
-    *   **Tehtävä:** Korvaa `href="#"` oikealla polulla CV-tiedostoosi (esim. `href="assets/panu_alaluusua_cv.pdf"`). Tallenna CV-tiedosto projektiin, esimerkiksi `assets`-kansioon.
 
-4.  **Päivitä Projektien Linkit:**
+
+3.  **Päivitä Projektien Linkit:**
     *   **Tiedosto:** `index.html`
     *   **Kohdat:** Kaikki `project-links` -osioiden `href="#"` -linkit (esim. "View Details", "View Research", "View Project", "Read Thesis").
     *   **Tehtävä:** Korvaa `href="#"` oikeilla URL-osoitteilla, jotka johtavat GitHub-repositorioihin, live-demoihin, julkaisuihin tai muihin relevantteihin materiaaleihin.
 
-5.  **Päätä ja Toteuta Yhteydenottolomakkeen Ratkaisu:**
+4.  **Päätä ja Toteuta Yhteydenottolomakkeen Ratkaisu:**
     *   **Tiedosto:** `script.js` (nykyinen `mailto:`), `index.html` (lomakkeen rakenne `#contactForm`)
     *   **Tehtävä:** Nykyinen `mailto:`-linkki on epäluotettava. Valitse ja integroi luotettavampi ratkaisu:
         *   **Vaihtoehto A (Suositeltu staattisille sivuille):** Käytä kolmannen osapuolen palvelua kuten [Formspree](https://formspree.io/) (ilmainen perustasolla) tai Netlify Forms (jos hostaat Netlifyssä). Nämä vaativat yleensä pienen muutoksen lomakkeen `action`-attribuuttiin ja mahdollisesti nimeämiskäytäntöihin input-kentille.
@@ -43,19 +40,27 @@ Nämä tehtävät vaativat sinun panostasi portfolion viimeistelemiseksi. Ne on 
     *   **Kohta:** Etsi kommentti tai luo `#certifications`-osion sisältö (`<section id="certifications" class="certifications">...</section>`, rivi ~23, jonka rakenne puuttuu vielä HTML:stä).
     *   **Tehtävä:** Listaa sertifikaattisi selkeästi. Harkitse logojen tai linkkien lisäämistä sertifikaatteihin, jos mahdollista. Varmista, että osio on visuaalisesti linjassa muun sivun kanssa.
 
-8.  **Tarkista ja Täydennä Projektikuvaukset:**
-    *   **Tiedosto:** `index.html`
-    *   **Kohta:** `projects-grid`-osion `project-card`-elementit.
-    *   **Tehtävä:** Varmista, että "Challenge, Solution, Results" -kuvaukset ovat ytimekkäitä, vakuuttavia ja tuovat esiin konkreettiset saavutuksesi. Tarkista kieliasu.
+8.  **Projektikuvaukset anonymisoitu ja geneeristetty:**
+    *   **Tiedosto:** `index.html`, `Panu_Alaluusua_CV.md`
+    *   **Kohta:** `projects-grid`-osion `project-card`-elementit ja CV:n projektiosio.
+    *   **Tehtävä:** Projektikuvaukset on nyt täysin anonymisoitu ja geneerisiä, eivätkä paljasta asiakasta tai tunnistettavia yksityiskohtia. Tarkista, haluatko vielä muokata kuvauksia tai lisätä muita projekteja.
+
 
 ## Prioriteetti 3: Keskitaso (Viimeistely)
 
-9.  **Harkitse Osaamispalkkien Tekstimuotoista Täydennystä:**
+9.  **Skills-osion teknologiat ja työkalut päivitetty:**
     *   **Tiedosto:** `index.html`
-    *   **Kohta:** `skills`-osion `skill-item`-elementit.
-    *   **Tehtävä:** Vaikka CSS-palkit lisätään, harkitse lyhyiden (1-2 lauseen) kuvausten lisäämistä kunkin taidon alle, selittäen *miten* tai missä yhteydessä olet taitoa käyttänyt. Esim. "Data Modeling" alle: "Designed relational and dimensional data models for large-scale financial data warehouses."
+    *   **Kohta:** `skills`-osion `Programming & Tools` -kategoriat.
+    *   **Tehtävä:** Kaikki tärkeät teknologiat ja työkalut (Jira, Confluence, Alation, Application Insights, Risk & Performance Data Products, SQL Servers) lisätty skills-osiolle.
 
-10. **Testaa Sivusto Huolellisesti Eri Laitteilla ja Selaimilla:**
+
+10. **Skills-osion ulkoasu ja kontrasti parannettu:**
+    *   **Tiedosto:** `styles.css`
+    *   **Kohta:** .skills-grid, .skill-item, .skill-icon, .skill-item h4
+    *   **Tehtävä:** Skills-osion korteille lisätty selkeä tummansininen tausta, border, varjo ja hover-efekti. Testaa ulkoasu eri selaimilla ja laitteilla.
+
+11. **Testaa Sivusto Huolellisesti Eri Laitteilla ja Selaimilla:**
     *   **Tehtävä:** Kun kaikki muutokset on tehty, testaa portfolion toimivuus ja ulkoasu yleisimmillä selaimilla (Chrome, Firefox, Safari, Edge) ja eri näyttökooilla (tietokone, tabletti, puhelin).
 
 Muista päivittää tämä TODO-lista sitä mukaa kun saat tehtäviä valmiiksi!
+

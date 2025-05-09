@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Set dark mode as default
+    document.body.classList.add('dark-mode');
     // Mobile menu toggle
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav');
@@ -31,40 +33,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form submission (you'll need to add your own backend logic)
+    // Contact form AJAX submit with thank you message
     const contactForm = document.getElementById('contactForm');
-    const formMessage = document.getElementById('formMessage'); 
-    const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
-
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            if (submitButton) submitButton.disabled = true;
-            if (formMessage) formMessage.textContent = 'Sending...';
-            if (formMessage) formMessage.className = 'form-message form-message-sending'; 
-
-            // Get form data
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Simulate a delay for now, replace with actual submission logic
-            setTimeout(() => {
-                const mailtoLink = `mailto:panu.alaluusua@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
-                window.location.href = mailtoLink;
-                
-                if (formMessage) {
-                    formMessage.textContent = 'Thank you for your message! If your email client opened, your message is ready to be sent.';
-                    formMessage.className = 'form-message form-message-success';
+            const form = e.target;
+            const successDiv = document.getElementById('contact-success');
+            if (successDiv) successDiv.textContent = '';
+            const formData = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    form.reset();
+                    if (successDiv) successDiv.textContent = 'Thank you for your message! I will get back to you soon.';
+                } else {
+                    if (successDiv) successDiv.textContent = 'Oops! Something went wrong. Please try again later.';
                 }
-                
-                contactForm.reset();
-                if (submitButton) submitButton.disabled = false;
-            }, 500); 
+            } catch (err) {
+                if (successDiv) successDiv.textContent = 'Oops! Something went wrong. Please try again later.';
+            }
         });
     }
+
     
     // Add active class to nav links on scroll
     const sections = document.querySelectorAll('section');

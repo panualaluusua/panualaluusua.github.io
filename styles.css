@@ -376,13 +376,19 @@ nav.active li {
 }
 
 .skill-icon {
-    font-size: 2rem;
+    font-size: 2.1em;
     margin-bottom: 10px;
+    color: #4eb3f7;
 }
 
 .skill-item h4 {
-    font-size: 1.1rem;
+    margin: 0;
+    font-size: 1.13em;
+    font-weight: 500;
+    color: #e8eaf6;
+    letter-spacing: 0.01em;
 }
+
 
 .skill-proficiency {
     display: flex;
@@ -402,10 +408,6 @@ nav.active li {
     display: block;
     height: 100%;
     background: var(--primary-gradient);
-}
-
-.skill-item .skill-proficiency .filled {
-    width: 0;
 }
 
 .skill-item .skill-proficiency {
@@ -501,6 +503,79 @@ nav.active li {
 
 .project-links {
     margin-top: auto;
+}
+
+.project-card .project-info .project-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+.project-date {
+    font-size: 0.85em;
+    color: var(--medium-text-color);
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.project-details-segment {
+    margin-bottom: 15px;
+}
+
+.project-details-segment h4 {
+    font-size: 1em;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.project-details-segment p {
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: var(--dark-text-color);
+}
+
+.project-tech {
+    margin-top: 15px;
+}
+
+.project-tech h4 {
+    font-size: 1em;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.project-tech span {
+    display: inline-block;
+    background-color: var(--light-accent-bg);
+    color: var(--primary-color);
+    padding: 4px 8px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: var(--border-radius-small);
+    font-size: 0.8em;
+}
+
+/* Dark mode for new project details */
+body.dark-mode .project-date {
+    color: var(--light-text-color-alt);
+}
+
+body.dark-mode .project-details-segment h4 {
+    color: var(--secondary-color);
+}
+
+body.dark-mode .project-details-segment p {
+    color: var(--light-text-color);
+}
+
+body.dark-mode .project-tech h4 {
+    color: var(--secondary-color);
+}
+
+body.dark-mode .project-tech span {
+    background-color: var(--dark-accent-bg);
+    color: var(--accent-color1);
 }
 
 /* Contact Section */
@@ -908,12 +983,11 @@ body.dark-mode .github-activity-error {
     gap: 40px;
 }
 
-.contact-info,
-.contact-form-container {
+.contact-info, .contact-form-container {
     flex: 1;
 }
 
-.contact-info h3 {
+.contact-info h3, .contact-form-container h3 {
     margin-bottom: 20px;
     color: var(--primary-color);
 }
@@ -1027,3 +1101,280 @@ footer {
     z-index: 1001;
     transition: width 0.1s ease;
 }
+
+/* Dark Mode Styles */
+
+/* Skills section card styles - always visible and strong contrast */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 24px;
+    justify-content: flex-start;
+}
+
+.skill-item {
+    background: #22306e !important;
+    color: #e8eaf6 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 2px 10px rgba(30, 64, 175, 0.07) !important;
+    padding: 28px 20px 18px 20px !important;
+    min-width: 170px;
+    flex: 1 1 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background 0.2s, box-shadow 0.2s;
+    margin-bottom: 8px;
+    border: 1.5px solid #4eb3f7 !important;
+}
+
+.skill-item:hover {
+    background: #2b3c82 !important;
+    box-shadow: 0 4px 18px rgba(30, 64, 175, 0.15) !important;
+}
+
+.skill-icon {
+    font-size: 2.1em !important;
+    margin-bottom: 10px !important;
+    color: #4eb3f7 !important;
+}
+
+.skill-item h4 {
+    margin: 0 !important;
+    font-size: 1.13em !important;
+    font-weight: 500 !important;
+    color: #e8eaf6 !important;
+    letter-spacing: 0.01em !important;
+}
+
+body.dark-mode {
+    background: #19223b;
+    color: #e8eaf6;
+}
+
+body.dark-mode .hero,
+body.dark-mode .projects,
+body.dark-mode .skills,
+body.dark-mode .certifications,
+body.dark-mode .work-experience-section,
+body.dark-mode .contact,
+body.dark-mode footer {
+    background: #19223b !important;
+    color: #e8eaf6 !important;
+}
+
+body.dark-mode .section-header h2,
+body.dark-mode .section-title {
+    color: #4eb3f7 !important;
+}
+
+body.dark-mode .project-card,
+body.dark-mode .certification-card,
+body.dark-mode .experience-content {
+    background: #22306e !important;
+    color: #e8eaf6 !important;
+    border: 1px solid #25316d;
+}
+
+body.dark-mode .project-tech span,
+body.dark-mode .skills-grid .skill-item {
+    background: #25316d !important;
+    color: #8ecae6 !important;
+}
+
+
+body.dark-mode .contact-section {
+    background-color: #2a2a2a; /* Tummempi tausta dark modessa */
+}
+
+body.dark-mode .contact-section .section-title,
+body.dark-mode .contact-section .contact-info p,
+body.dark-mode .contact-section .contact-info a,
+body.dark-mode .contact-section .contact-form label {
+    color: var(--light-text-color);
+}
+
+body.dark-mode .contact-section .contact-form input[type="text"],
+body.dark-mode .contact-section .contact-form input[type="email"],
+body.dark-mode .contact-section .contact-form textarea {
+    background-color: #333;
+    color: var(--light-text-color);
+    border: 1px solid #444;
+}
+
+body.dark-mode .contact-section .contact-form input[type="text"]::placeholder,
+body.dark-mode .contact-section .contact-form input[type="email"]::placeholder,
+body.dark-mode .contact-section .contact-form textarea::placeholder {
+    color: #bbb;
+}
+
+body.dark-mode .contact-section .contact-form .btn {
+    background-color: var(--secondary-color);
+    color: var(--dark-bg-color);
+}
+
+body.dark-mode .contact-section .contact-form .btn:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+/* Work Experience Section Styles */
+.work-experience-section {
+    padding: 80px 0;
+    background-color: var(--light-bg-color);
+}
+
+.work-experience-section .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--dark-text-color);
+}
+
+.experience-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.experience-timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 20px; /* Adjusted for icon/dot size */
+    margin-left: -2px;
+}
+
+.experience-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 100%; /* Full width for simpler mobile layout */
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+.experience-dot {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 20px; /* Centered with the line */
+    background-color: var(--light-bg-color);
+    border: 4px solid var(--primary-color);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+}
+
+.experience-date {
+    padding: 0 0 10px 30px; /* Align with content, past the dot */
+    margin-left: 20px; /* Space from the timeline line */
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 0.9em;
+}
+
+.experience-content {
+    padding: 15px 20px;
+    background-color: var(--white-color);
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-left: 50px; /* Space from the timeline line + dot */
+}
+
+.experience-content h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1.4em;
+}
+
+.experience-content .company {
+    display: block;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--dark-text-color);
+    margin-bottom: 10px;
+}
+
+.experience-content p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: var(--medium-text-color);
+    margin-bottom: 0;
+}
+
+/* Dark Mode for Work Experience */
+body.dark-mode .work-experience-section {
+    background-color: var(--dark-bg-color2);
+}
+
+body.dark-mode .work-experience-section .section-title {
+    color: var(--light-text-color);
+}
+
+body.dark-mode .experience-timeline::after {
+    background-color: var(--secondary-color); /* Or a lighter shade of primary */
+}
+
+body.dark-mode .experience-dot {
+    background-color: var(--dark-bg-color2);
+    border-color: var(--secondary-color); /* Or a lighter shade of primary */
+}
+
+body.dark-mode .experience-date {
+    color: var(--accent-color1); /* Or a lighter shade */
+}
+
+body.dark-mode .experience-content {
+    background-color: var(--dark-card-bg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .experience-content h3 {
+    color: var(--secondary-color);
+}
+
+body.dark-mode .experience-content .company {
+    color: var(--light-text-color);
+}
+
+body.dark-mode .experience-content p {
+    color: var(--light-text-color-alt);
+}
+
+/* Responsive adjustments for Work Experience */
+@media (max-width: 768px) {
+    .experience-timeline::after {
+        left: 20px;
+    }
+
+    .experience-item {
+        width: 100%;
+        padding-left: 50px; /* Space for dot and line */
+        padding-right: 15px;
+    }
+
+    .experience-dot {
+        left: 20px;
+    }
+
+    .experience-date {
+        padding-left: 0; /* No extra padding from dot */
+        margin-left: 30px; /* Align with content after dot */
+    }
+
+    .experience-content {
+        margin-left: 30px; /* Align with date */
+    }
+}
+
+/* Projects Section */
