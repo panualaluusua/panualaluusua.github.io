@@ -585,10 +585,13 @@ body.dark-mode .project-tech span {
 
 .contact-content {
     display: flex;
-    flex-wrap: wrap; /* Mahdollistaa rivittymisen pienemmillä näytöillä */
-    justify-content: space-around; /* Jakaa tilan tasaisesti */
-    align-items: flex-start; /* Kohdistaa elementit yläreunaan */
-    gap: 40px; /* Väli elementtien välillä */
+    flex-wrap: wrap;
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 700px;
 }
 
 .contact-details {
@@ -617,8 +620,11 @@ body.dark-mode .project-tech span {
 
 
 .contact-form {
-    flex: 2; /* Lomake vie enemmän tilaa */
-    min-width: 300px; /* Minimileveys ennen rivittymistä */
+    flex: none;
+    min-width: 320px;
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 /* Responsive adjustments for contact section if needed */

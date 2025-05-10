@@ -149,43 +149,4 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
     });
 
-    // Animated counters for the Stats Section
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200; 
-
-    const animateCounter = (counter) => {
-        const target = +counter.getAttribute('data-target');
-        const updateCount = () => {
-            const count = +counter.innerText;
-            const increment = target / speed;
-
-            if (count < target) {
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(updateCount, 20); 
-            } else {
-                counter.innerText = target;
-            }
-        };
-        updateCount();
-    };
-
-    const observerOptions = {
-        root: null, 
-        rootMargin: '0px',
-        threshold: 0.5 
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                observer.unobserve(entry.target); 
-            }
-        });
-    }, observerOptions);
-
-    counters.forEach(counter => {
-        observer.observe(counter);
-        counter.innerText = '0'; 
-    });
 }); 
