@@ -307,30 +307,7 @@ nav.active li {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* About Section */
-.about-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.about-text {
-    flex: 1;
-    padding-right: 40px;
-}
-
-.about-text p {
-    margin-bottom: 20px;
-    color: var(--gray-color);
-}
-
-.about-buttons {
-    margin-top: 30px;
-}
-
-.about-image {
-    flex: 1;
-}
+/* About Section removed */
 
 /* Skills Section */
 .skills {
@@ -664,11 +641,11 @@ footer {
 
 /* Responsive Styles */
 @media (max-width: 992px) {
-    .hero .container, .about-content, .contact-content {
+    .hero .container, .contact-content {
         flex-direction: column;
     }
     
-    .hero-content, .about-text, .contact-info {
+    .hero-content, .contact-info {
         padding-right: 0;
         margin-bottom: 40px;
     }
