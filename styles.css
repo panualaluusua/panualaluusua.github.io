@@ -809,3 +809,16 @@ footer {
     color: var(--secondary-color);
     text-decoration: underline;
 }
+
+.passion-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #94a3b8;
+    margin-bottom: 8px;
+    background: rgba(148, 163, 184, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
