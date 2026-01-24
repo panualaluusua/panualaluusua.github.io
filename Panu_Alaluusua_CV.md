@@ -1,65 +1,65 @@
 # Panu Alaluusua
-Data Engineer
-Oulu, Finland | panu.alaluusua@gmail.com | [linkedin.com/in/panu-alaluusua](https://www.linkedin.com/in/panu-alaluusua) | [github.com/panualaluusua](https://github.com/panualaluusua)
+Data Engineer | Azure & Databricks | Finance M.Sc. | Pioneering GenAI-Augmented Development
+Oulu, Finland | panu.alaluusua@gmail.com | [linkedin.com/in/panu-alaluusua](https://www.linkedin.com/in/panu-alaluusua) | [github.com/panualaluusua](https://github.com/panualaluusua) | [panualaluusua.fi](https://panualaluusua.fi/)
 
 ## Summary
-Finance (MSc) professional with 5+ years of experience building AI-enhanced data platforms using Databricks, Azure, and modern data engineering technologies. Highly motivated Data Engineer with a strong background in finance, skilled in developing and managing scalable data solutions. Proven ability to translate business requirements into robust technical implementations.
+
+Data Engineer (M.Sc. Finance) building modern, scalable platforms on Azure & Databricks. I specialize in **GenAI-augmented development**, using systematic agentic workflows (Taskmaster pattern) to deliver production-grade infrastructure with speed and precision.
+
+*   **GenAI:** I lead development with systematic agentic methodologies, not just tools.
+*   **Finance:** Bridging deep financial expertise with robust technical implementation.
+*   **Platforms:** Building secure, regulated (EUDR/GDPR), and "AI-ready" infrastructure.
+
+**Tech Stack:** Databricks, Spark, Python, SQL, Azure Data Factory, DevOps.
 
 ## Skills
 
-**Data Engineering:**
-Data Modeling, ETL Pipelines, Databricks, Apache Spark, DBT, DataOps, Infrastructure as Code, Azure Data Factory
+### Top 5 Core Skills
+1.  **Data Engineering**
+2.  **Generative AI**
+3.  **Azure Databricks**
+4.  **Financial Engineering**
+5.  **Python**
 
-**Programming & Tools:**
-Python, SQL, R, Azure, Git, DevOps, Machine Learning, Data Visualization
-
-**Finance & Analytics:**
-Financial Modeling, Portfolio Management, Financial Risk, Quantitative Finance, Econometrics, Data Analytics, Research, Statistics
-
-**Soft Skills:**
-Team Collaboration, Agile Methodologies, Problem Solving, Bilingual Communication (Finnish & English), Public Speaking, Analytical Thinking
+### Technical Keywords
+Azure Data Factory, Apache Spark, SQL, DevOps, Infrastructure as Code (IaC), Bicep, Terraform, EU AI Act, GDPR, EUDR, Risk Management, Corporate Finance, Data Lakehouse, Delta Lake, Automated Testing, TDD, CI/CD, Agentic Workflows, Microsoft Azure, API Integration, Data Modeling.
 
 ## Work Experience
 
-**Data Engineer** | SOLITA (_3/2021 – Present_)
-*   Experienced in modern data platform paradigms, including DataOps, data lake architecture, streaming solutions, GDPR compliance, and data platform administration.
-*   Skilled in data development using PySpark.
-*   Exposure to Bash, Scala, YAML, and Bicep scripting.
-*   My current role is a mix of Platform / Data Engineer.
+**Data Engineer** | Solita
+*Mar 2021 – Present | Oulu, Finland*
 
-**Doctoral Student** | University of Oulu (_8/2020 – 12/2020_)
-*   Worked for the Computer Science and Engineering department researching data mining & learning analytics solutions for Higher Education, with a goal of publishing.
-*   Responsibilities included acting as a course assistant for a basics level Python course.
+My current role is a mix of Platform / Data Engineer. I build regulatory compliant data lake architectures, and implement streaming solutions using modern DataOps paradigms.
 
-**Research Assistant (Part-time)** | University of Oulu (_5/2019 – 8/2020_)
-*   Conducted learning analytics, including data preprocessing, data analysis, and advanced analytics.
-*   Performed ad hoc analysis and visualizations.
-*   Gained experience in R-programming, various analysis methods & algorithms, project reporting, and requirement gathering.
+**Key Customer Projects:**
+*   **Finance & Investing Data Platform:** Designed and implemented daily end-to-end pipelines for **Return, Risk, and market data**, modernizing investment performance calculations. *(Techs: ADF, Databricks, DBT, Bicep)*
+*   **Data Migration & GenAI Refactoring:** Refactored 100+ Notebooks using a systematic **Agentic Development Methodology** (Taskmaster pattern) to ensure quality and speed. *(Techs: Databricks, Python, PySpark)*
+*   **GenAI Migration POC (Legacy to dbt):** Designed a semi-automated pipeline using GenAI to convert legacy ETL workflows into dbt models. *(Techs: GenAI, dbt, Python)*
+*   **General Data Platform:** Constructed a modern, secure Azure data platform enabling rapid development and optimized streaming. *(Techs: Azure DevOps, Python, Alation)*
+*   **Regulatory Data Integration (EUDR):** Delivered a production-ready compliance integration (Snowflake -> REST API) with automated scheduling and robust error handling. *(Techs: Azure Web Apps, Snowflake, Terraform)*
 
-## Projects
+**Doctoral Student / Researcher** | University of Oulu
+*Aug 2020 – Dec 2020*
+*   **Research:** Explored BI & Data Mining solutions for Higher Education (Academic Analytics).
+*   **Teaching:** Course assistant for Python basics.
 
-**Development and Management of a Modern Data Platform for a Confidential Client**
-*   **Challenge & Purpose:** To enable a large organization to modernize and streamline its data operations, improve reporting, and support agile business needs through a scalable data platform.
-*   **Solution & Benefits:** Implemented a robust and flexible data platform that enhanced the organization’s ability to manage, process, and utilize data efficiently. The solution improved data accessibility, reporting capabilities, and supported the adoption of modern development practices.
-*   **My Role:** Responsible for designing and building secure, cloud-based data services, developing user and access management features, maintaining the platform, and optimizing data flows. Translated business requirements into technical solutions and contributed to the development of data-driven products.
-
-**Specialized Data Solution for a Private Sector Client**
-*   **Challenge & Purpose:** Tasked with extending and tailoring a data platform to meet evolving business needs, including the modernization of legacy data processes and improvement of analytics and reporting.
-*   **Solution & Benefits:** Collaborated to create an isolated data environment for sensitive business operations, migrated and optimized data flows, and enabled more agile development and analytics practices.
-*   **My Role:** Took end-to-end responsibility for the implementation and enhancement of data-driven solutions. Led integration work, data flow construction, platform maintenance, and migration of critical data assets.
+**Research Assistant** | University of Oulu
+*Jun 2019 – Aug 2020*
+*   **Learning Analytics:** Data cleaning, Feature Engineering, EDA/Visualization, and ML.
+*   **Ad-hoc Analysis:** Provided customized reporting beyond standard BI tools.
+*   **Master's Thesis:** Simulation analysis of higher education teaching linked with financing models.
 
 ## Education
 
-**Master of Science (Finance)**
-*   University of Oulu
-*   *Thesis: Simulated student flow linked with universities financing model.*
+**Master of Science (Economics & Business Administration)**
+*   University of Oulu | 2013 – 2020
+*   *Major:* Finance
 
-**Doctoral Studies (Computer Science)**
-*   University of Oulu
-*   *Focus on Data Mining & Learning Analytics during the Doctoral Student period.*
+**Bachelor of Science**
+*   University of Oulu | 2013 – 2019
+*   *Major:* Finance
 
 ## Certifications
 
 **Databricks Certified Data Engineer Associate**
 *   Issued by Databricks, October 2022
-*   Credential ID: 61141602
