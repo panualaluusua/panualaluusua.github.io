@@ -822,3 +822,301 @@ footer {
     padding: 2px 8px;
     border-radius: 4px;
 }
+
+/* AI Data Engineer Learning Tree */
+.learning-path-section {
+    padding: 100px 24px;
+    background: linear-gradient(to bottom, var(--dark-bg) 0%, #151e2b 100%);
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.learning-goal {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.learning-goal h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.learning-tree {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    position: relative;
+}
+
+/* Connecting Line (The Trunk) */
+.learning-tree::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+    left: 28%;
+    width: 6px;
+    background: #334155;
+    border-radius: 4px;
+    z-index: 0;
+}
+
+.tree-phase {
+    position: relative;
+    z-index: 1;
+}
+
+.phase-marker {
+    background: #0f172a;
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.root-phase .phase-marker {
+    border-color: #a16207;
+    color: #facc15;
+}
+
+.phase-sub {
+    color: var(--text-muted);
+    margin-left: 10px;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.tree-content-row {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 60px;
+    margin-bottom: 30px;
+}
+
+.trunk-column {
+    position: relative;
+}
+
+.column-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #64748b;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Specific styling for Trunk Cards */
+.trunk-card {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    border: 1px solid var(--primary-color);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.trunk-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 15px rgba(59, 130, 246, 0.15);
+}
+
+.trunk-card::before {
+    content: '';
+    position: absolute;
+    right: -66px;
+    /* Connect to branches */
+    top: 50%;
+    width: 66px;
+    height: 2px;
+    background: #334155;
+    display: none;
+    /* Only show if we want explicit lines to branches, tricky with grid */
+}
+
+/* Root Phase Specifics */
+.root-phase .learning-tree::before {
+    top: 0;
+}
+
+.root-phase .trunk-block {
+    grid-column: 1 / -1;
+    background: #1e293b;
+    border: 1px dashed #a16207;
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.trunk-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.trunk-list li {
+    margin-bottom: 8px;
+    color: var(--text-muted);
+}
+
+.trunk-list strong {
+    color: #facc15;
+}
+
+.status-badge {
+    display: inline-block;
+    background: rgba(161, 98, 7, 0.2);
+    color: #facc15;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+
+.card-type {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--secondary-color);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Branch Styling */
+.branch-column {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    align-content: start;
+}
+
+.branch-card {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid var(--border-color);
+    padding: 16px;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.branch-card:hover {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: var(--secondary-color);
+}
+
+.branch-tag {
+    font-size: 0.7rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.learning-card h5 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: var(--text-main);
+}
+
+.learning-card p {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+/* Milestones */
+.milestone-banner {
+    background: linear-gradient(90deg, #1e293b, #0f172a);
+    border: 1px solid #334155;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    /* Center milestones? or align with trunk? */
+    position: relative;
+    z-index: 2;
+}
+
+.milestone-banner.highlight {
+    border-color: #f59e0b;
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.1), #0f172a);
+}
+
+.milestone-icon {
+    font-size: 2rem;
+    background: #0f172a;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+}
+
+.highlight .milestone-icon {
+    border-color: #f59e0b;
+}
+
+.milestone-content h4 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .learning-tree::before {
+        left: 20px;
+        /* Move line to left */
+    }
+
+    .tree-content-row {
+        grid-template-columns: 1fr;
+        /* Stack vertically */
+        gap: 30px;
+        padding-left: 40px;
+        /* Make space for line */
+    }
+
+    .trunk-column {
+        padding-bottom: 20px;
+        border-bottom: 1px dashed var(--border-color);
+    }
+
+    .trunk-card {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .learning-tree::before {
+        display: none;
+        /* Hide line on small screens */
+    }
+
+    .tree-content-row {
+        padding-left: 0;
+    }
+
+    .milestone-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+}
