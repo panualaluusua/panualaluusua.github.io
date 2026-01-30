@@ -1,4 +1,5 @@
 // blog-posts.js
+// Last check: 2026-01-30
 // Fetches and displays the latest blog posts from Dev.to
 
 const devtoUsername = "panualaluusua";
