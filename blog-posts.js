@@ -12,7 +12,8 @@ async function fetchBlogPosts() {
     blogContainer.innerHTML = '<div class="loading-spinner">Loading articles...</div>';
 
     try {
-        const response = await fetch(`https://dev.to/api/articles?username=${devtoUsername}`);
+        // Add timestamp to prevent caching
+        const response = await fetch(`https://dev.to/api/articles?username=${devtoUsername}&t=${new Date().getTime()}`);
         if (!response.ok) throw new Error("Failed to fetch blog posts");
 
         const articles = await response.json();
