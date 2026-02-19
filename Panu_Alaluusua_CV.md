@@ -1,65 +1,129 @@
+<link rel="stylesheet" href="cv-style.css">
+
 # Panu Alaluusua
-Data Engineer | Azure & Databricks | Finance M.Sc. | Pioneering GenAI-Augmented Development
-Oulu, Finland | panu.alaluusua@gmail.com | [linkedin.com/in/panu-alaluusua](https://www.linkedin.com/in/panu-alaluusua) | [github.com/panualaluusua](https://github.com/panualaluusua) | [panualaluusua.fi](https://panualaluusua.fi/)
+**Data Engineer | Transitioning to AI Data Engineering | M.Sc. (Finance)**
+Oulu, Finland | panu.alaluusua@gmail.com | [linkedin.com/in/panu-alaluusua](https://www.linkedin.com/in/panu-alaluusua) | [panualaluusua.fi](https://panualaluusua.fi)
 
-## Summary
+---
 
-Data Engineer (M.Sc. Finance) building modern, scalable platforms on Azure & Databricks. I specialize in **GenAI-augmented development**, using systematic agentic workflows (Taskmaster pattern) to deliver production-grade infrastructure with speed and precision.
+## **Profile**
 
-*   **GenAI:** I lead development with systematic agentic methodologies, not just tools.
-*   **Finance:** Bridging deep financial expertise with robust technical implementation.
-*   **Platforms:** Building secure, regulated (EUDR/GDPR), and "AI-ready" infrastructure.
+**Data Engineer** (5 years) with strong expertise in finance-sector data platforms, transitioning to **AI Data Engineering**. I combine technical expertise (Azure, Databricks) with deep understanding of the finance industry (M.Sc. Finance), enabling me to build mission-critical data products that meet business and regulatory requirements.
 
-**Tech Stack:** Databricks, Spark, Python, SQL, Azure Data Factory, DevOps.
+**Databricks Certified Generative AI Engineer** (2026), specializing in RAG applications, Vector Search technologies, and LLM-based solutions. I build reliable data products – from risk management pipelines to liquidity and balance sheet management – combining data platform architecture (Data Mesh) with AI-augmented development methodologies.
 
-## Skills
+My approach is based on close partnership with business stakeholders, ensuring data quality and traceability, and developing platforms toward domain-oriented architectures.
 
-### Top 5 Core Skills
-1.  **Data Engineering**
-2.  **Generative AI**
-3.  **Azure Databricks**
-4.  **Financial Engineering**
-5.  **Python**
+---
 
-### Technical Keywords
-Azure Data Factory, Apache Spark, SQL, DevOps, Infrastructure as Code (IaC), Bicep, Terraform, EU AI Act, GDPR, EUDR, Risk Management, Corporate Finance, Data Lakehouse, Delta Lake, Automated Testing, TDD, CI/CD, Agentic Workflows, Microsoft Azure, API Integration, Data Modeling.
+## **Core Technical Expertise**
 
-## Work Experience
+| Area | Technologies & Concepts |
+| :--- | :--- |
+| **AI & GenAI (Emerging)** | **RAG Applications**, **Vector Search**, **MLflow**, **Model Serving**, Unity Catalog, LLM Chains, **Agentic Workflows** |
+| **Data Platform Architecture** | **Data Mesh**, **Azure Databricks**, **Apache Spark**, Delta Lake, ETL/ELT, PySpark, Python (Advanced), SQL |
+| **Finance Domain** | **Pension Insurance**, **Risk Management Data**, Investment Operations, Middle Office, Actuarial Calculations, Regulation (Solvency II, IFRS) |
+| **Cloud & DevOps** | **DataOps**, **Azure Data Factory**, **Terraform (IaC)**, Azure DevOps, CI/CD, Git |
+| **Quality & Governance** | **Legacy Migrations**, Parallel Run Testing, Automated Reconciliation, Data Governance, Audit Trail |
 
-**Data Engineer** | Solita
-*Mar 2021 – Present | Oulu, Finland*
+---
 
-My current role is a mix of Platform / Data Engineer. I build regulatory compliant data lake architectures, and implement streaming solutions using modern DataOps paradigms.
+## **Work Experience**
 
-**Key Customer Projects:**
-*   **Finance & Investing Data Platform:** Designed and implemented daily end-to-end pipelines for **Return, Risk, and market data**, modernizing investment performance calculations. *(Techs: ADF, Databricks, DBT, Bicep)*
-*   **Data Migration & GenAI Refactoring:** Refactored 100+ Notebooks using a systematic **Agentic Development Methodology** (Taskmaster pattern) to ensure quality and speed. *(Techs: Databricks, Python, PySpark)*
-*   **GenAI Migration POC (Legacy to dbt):** Designed a semi-automated pipeline using GenAI to convert legacy ETL workflows into dbt models. *(Techs: GenAI, dbt, Python)*
-*   **General Data Platform:** Constructed a modern, secure Azure data platform enabling rapid development and optimized streaming. *(Techs: Azure DevOps, Python, Alation)*
-*   **Regulatory Data Integration (EUDR):** Delivered a production-ready compliance integration (Snowflake -> REST API) with automated scheduling and robust error handling. *(Techs: Azure Web Apps, Snowflake, Terraform)*
+### **Solita** | Data Engineer
+*March 2021 – Present | Oulu, Finland*
 
-**Doctoral Student / Researcher** | University of Oulu
-*Aug 2020 – Dec 2020*
-*   **Research:** Explored BI & Data Mining solutions for Higher Education (Academic Analytics).
-*   **Teaching:** Course assistant for Python basics.
+Serving as Data Engineer in mission-critical data projects for a major Finnish pension insurance company, responsible for technical implementation and team guidance. Building and modernizing data platforms that serve investment operations, risk management, actuarial calculations, and regulatory reporting.
 
-**Research Assistant** | University of Oulu
-*Jun 2019 – Aug 2020*
-*   **Learning Analytics:** Data cleaning, Feature Engineering, EDA/Visualization, and ML.
-*   **Ad-hoc Analysis:** Provided customized reporting beyond standard BI tools.
-*   **Master's Thesis:** Simulation analysis of higher education teaching linked with financing models.
+**Strategic Impact & Data Platform Development:**
 
-## Education
+*   **Data Platform Architecture Modernization (Data Mesh):**
+    *   Led the transition from legacy monolith to **domain-oriented** data platform.
+    *   Enabled **self-service capabilities** for finance and Middle Office teams, reducing IT dependencies.
+    *   Designed architecture to segregate **sensitive financial data** into dedicated domains (data governance).
 
-**Master of Science (Economics & Business Administration)**
-*   University of Oulu | 2013 – 2020
-*   *Major:* Finance
+*   **Legacy Migrations & Quality Assurance:**
+    *   Led multiple critical system modernizations (e.g., Risk data, Actuarial liability data).
+    *   Implemented **parallel run testing** with automated reconciliation → proved **100% data consistency** and gained business confidence for production deployment.
+    *   Ensured **data integrity and traceability** (audit trail), critical for regulatory reporting.
 
-**Bachelor of Science**
-*   University of Oulu | 2013 – 2019
-*   *Major:* Finance
+**Key Projects:**
 
-## Certifications
+*   **Actuarial Liability & Risk Data Pipelines:**
+    *   Built scalable data pipelines that calculate and aggregate data for **actuarial liability and solvency calculations**.
+    *   *Technology:* Databricks, PySpark, Azure Data Lake, Delta Lake.
+    *   *Impact:* Automated regulatory reporting (Solvency II, IFRS), ensured data accuracy and auditability.
 
-**Databricks Certified Data Engineer Associate**
-*   Issued by Databricks, October 2022
+*   **Financial Data Aggregation System:**
+    *   Built critical aggregation engine for **multi-currency cash balances** and financial instruments.
+    *   Implemented **fault-tolerant mechanisms** (fallback) ensuring valid data delivery to downstream systems despite source data delays.
+    *   *Result:* Secured continuity of daily financial operations.
+
+*   **Risk Data Pipeline for Portfolio Management:**
+    *   Developed data pipelines delivering **risk metrics and scenario calculations** from risk management systems to Middle Office and portfolio managers.
+    *   Optimized system architecture to consistently meet critical **10:00 AM SLA deadline** for portfolio management decision-making.
+    *   *Feedback loop:* Fast iteration cycles based on direct Middle Office feedback.
+
+*   **Investment Data Integration Platform:**
+    *   Built real-time **market data API** and portfolio management system integrations.
+    *   Enabled up-to-date data flow for investment decision-making.
+
+*   **EUDR Regulatory Integration (EU Deforestation Regulation):**
+    *   Developed modular Python application for EU Deforestation Regulation compliance management.
+    *   *Architecture:* Designed **secure, segregated** solution on Azure Web Apps platform (Docker, Terraform), ensuring strict separation for auditability.
+    *   *Automation:* Replaced manual process with automated `GET → MODIFY → POST` integration.
+
+**AI-Augmented Data Development Methodologies:**
+*   Actively leverage **LLM-assisted coding** (Cursor, Claude Code) specifically in **data development** – building data pipelines, transformations, and testing.
+*   Apply **Spec-Driven Development** and **Context Modeling** approaches, enabling fast iteration cycles and high code quality in data product development.
+*   This approach has proven particularly effective in complex data development projects where requirements evolve rapidly.
+
+---
+
+### **University of Oulu** | Doctoral Student & Research Assistant
+*June 2019 – December 2020 | Oulu, Finland*
+
+Data science and advanced analytics researcher focused on higher education metrics.
+
+*   **Machine Learning & Analytics:** Trained XGBoost predictive models and performed feature engineering for learning analytics.
+*   **Data Pipelines:** Managed data cleaning, exploratory data analysis (EDA), and visualization workflows using R and Python.
+*   **Impact:** Produced customized ad-hoc analyses beyond standard BI tools to support decision-making.
+
+---
+
+## **Education**
+
+**Master of Science (Finance)** | *University of Oulu (2013 – 2020)*
+*   **Major:** Finance | **Minor:** Statistics/Econometrics
+*   **Focus Areas:** Financial econometrics, risk management, quantitative analysis, financial mathematics.
+*   **Relevance:** Deep understanding of financial instruments, risk models, and time series analysis. Fluent in "actuarial language" and effective communication with both finance professionals and data scientists. Statistical foundation enables understanding data quality requirements (distribution validation, change detection).
+
+---
+
+## **Certifications**
+
+*   **Databricks Certified Generative AI Engineer Associate** (February 2026)
+    *   *Expertise:* Generative AI Solutions, RAG Applications, Vector Search, Model Serving, MLflow, Unity Catalog, LLM Chains.
+*   **Databricks Certified Data Engineer Associate** (October 2022, expired 2024)
+
+---
+
+## **Projects & Portfolio**
+
+*   **Engineering Portfolio:** Detailed case examples of my work, GenAI projects, and architectures.
+    → [panualaluusua.fi](https://panualaluusua.fi/)
+
+---
+
+## **Languages**
+
+*   **Finnish:** Native
+*   **English:** Fluent (professional working proficiency, documentation, certifications)
+
+---
+
+## **Interests & Hobbies**
+
+*   **Generative AI & RAG:** Building RAG applications and exploring LLM-based agents in personal projects.
+*   **Investing:** Active equity investor and market follower – understanding financial markets from a practical perspective.
+*   **Cycling:** E-cycling competitor and enthusiast (featured in passion projects on portfolio).
