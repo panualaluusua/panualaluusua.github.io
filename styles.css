@@ -447,7 +447,7 @@ nav ul li a.active {
 
 .certification-card {
     background: var(--card-bg);
-    padding: 40px;
+    padding: 24px;
     border-radius: var(--card-radius);
     border: 1px solid var(--border-color);
     display: flex;
@@ -457,7 +457,7 @@ nav ul li a.active {
 }
 
 .certification-logo {
-    font-size: 4rem;
+    font-size: 3rem;
     color: #FBBF24;
     /* Gold for cert */
 }
@@ -1375,4 +1375,52 @@ footer {
     color: #ef4444;
     /* Heart color */
     margin-right: 4px;
+}
+/* Skill Tags */
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.skill-tag {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 10px 18px;
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    transition: 0.2s;
+}
+.skill-tag i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+.skill-tag:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    background: rgba(30, 41, 59, 0.8);
+}
+
+/* Credentials Layout */
+.credentials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.cert-tag {
+    font-size: 0.75rem; 
+    background: rgba(59, 130, 246, 0.15); 
+    color: var(--secondary-color); 
+    padding: 4px 10px; 
+    border-radius: 12px;
+}
+
+@media (max-width: 992px) {
+    .credentials-grid {
+        grid-template-columns: 1fr;
+    }
 }

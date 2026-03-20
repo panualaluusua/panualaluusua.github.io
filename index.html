@@ -51,13 +51,13 @@
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
+                    <li><a href="#work-experience">Work Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#passion-projects">Passion Projects</a></li>
                     <li><a href="#blog">Writing</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#certifications">Certifications</a></li>
-                    <li><a href="#work-experience">Work Experience</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                                        <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
             <div class="hamburger">
@@ -96,6 +96,80 @@
             </div>
 
 
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Work Experience Section -->
+    <section id="work-experience" class="work-experience-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Work Experience</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-date">Mar 2021 – Present</div>
+                    <div class="experience-content">
+                        <h3>Data Engineer</h3>
+                        <span class="company">Solita | Oulu, Finland</span>
+                        <ul style="margin-top: 10px; padding-left: 20px; color: var(--text-muted);">
+                            <li>Acting as a Data Engineer modernizing mission-critical data platforms for a major
+                                Finnish pension insurance company.</li>
+                            <li>Designing and implementing domain-oriented architecture (Data Mesh) to serve investment,
+                                risk management, and actuarial reporting.</li>
+                            <li>Leading legacy migrations with automated parallel run testing to ensure 100% data
+                                consistency.</li>
+                            <li>Building scalable pipelines for liability calculations, financial data aggregation, and
+                                regulatory compliance (e.g. EUDR).</li>
+                            <li><strong>Stack:</strong> Azure Databricks, PySpark, Python, Azure Data Factory, dbt, SQL,
+                                Terraform.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-date">Aug 2020 – Dec 2020</div>
+                    <div class="experience-content">
+                        <h3>Doctoral Student / Researcher</h3>
+                        <span class="company">University of Oulu</span>
+                        <ul style="margin-top: 10px; padding-left: 20px; color: var(--text-muted);">
+                            <li>Research in Academic Analytics.</li>
+                            <li>Explored Business Intelligence and Data Mining solutions for Higher Education.</li>
+                            <li>Teaching assistant for Python basics course.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-date">Jun 2019 – Aug 2020</div>
+                    <div class="experience-content">
+                        <h3>Research Assistant</h3>
+                        <span class="company">University of Oulu</span>
+                        <ul style="margin-top: 10px; padding-left: 20px; color: var(--text-muted);">
+                            <li><strong>Learning Analytics:</strong> Data cleaning, feature engineering, and exploratory
+                                data analysis.</li>
+                            <li><strong>Ad-hoc Analysis:</strong> Provided customized reports beyond standard BI tools.
+                            </li>
+                            <li><strong>Master's Thesis:</strong> "Simulation analysis of higher education teaching
+                                linked with financing model."</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-date">Apr 2018 – Jun 2019</div>
+                    <div class="experience-content">
+                        <h3>Property Maintenance</h3>
+                        <span class="company">ISS A/S</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -266,10 +340,9 @@
     <section id="passion-projects" class="passion-projects">
         <div class="container">
             <div class="section-header">
-                <h2>Passion Projects & Hobbies</h2>
+                <h2>Architecture Sandboxes & Personal Projects</h2>
                 <div class="underline"></div>
-                <p class="recruiter-note">Beyond client work, I love building tools and exploring new tech. Here are
-                    some of my personal projects.</p>
+                <p class="recruiter-note">Beyond client work, I build things just for fun. These projects serve as my personal technical sandboxes for exploring new tech, coding apps, and testing modern data architectures.</p>
             </div>
 
             <div class="passion-projects-grid">
@@ -461,62 +534,28 @@
 
                 <div class="skill-category">
                     <h3>Technologies & Tools</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-sparkles"></i></div>
-                            <h4>Vector Search & RAG</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-cube"></i></div>
-                            <h4>MLflow & Model Serving</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-cubes"></i></div>
-                            <h4>Databricks & Spark</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
-                            <h4>Azure (ADF, Synapse)</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-python"></i></div>
-                            <h4>Python & PySpark</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-code-branch"></i></div>
-                            <h4>dbt & Unity Catalog</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-docker"></i></div>
-                            <h4>Docker & Terraform</h4>
-                        </div>
+                    <div class="skills-tags">
+                        <span class="skill-tag"><i class="fas fa-sparkles"></i> Vector Search & RAG</span>
+                        <span class="skill-tag"><i class="fas fa-cube"></i> MLflow & Model Serving</span>
+                        <span class="skill-tag"><i class="fas fa-cubes"></i> Databricks & Spark</span>
+                        <span class="skill-tag"><i class="fab fa-microsoft"></i> Azure (ADF, Synapse)</span>
+                        <span class="skill-tag"><i class="fab fa-python"></i> Python & PySpark</span>
+                        <span class="skill-tag"><i class="fas fa-code-branch"></i> dbt & Unity Catalog</span>
+                        <span class="skill-tag"><i class="fab fa-docker"></i> Docker & Terraform</span>
                     </div>
+                </div>
                 </div>
 
                 <div class="skill-category">
                     <h3>Domain Knowledge (Finance)</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-                            <h4>Corporate Finance</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
-                            <h4>Financial Risk Mgmt</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-calculator"></i></div>
-                            <h4>Financial Engineering</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-search-dollar"></i></div>
-                            <h4>Econometrics</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-university"></i></div>
-                            <h4>Banking & Insurance</h4>
-                        </div>
+                    <div class="skills-tags">
+                        <span class="skill-tag"><i class="fas fa-chart-line"></i> Corporate Finance</span>
+                        <span class="skill-tag"><i class="fas fa-shield-alt"></i> Financial Risk Mgmt</span>
+                        <span class="skill-tag"><i class="fas fa-calculator"></i> Financial Engineering</span>
+                        <span class="skill-tag"><i class="fas fa-search-dollar"></i> Econometrics</span>
+                        <span class="skill-tag"><i class="fas fa-university"></i> Banking & Insurance</span>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -524,131 +563,55 @@
 
     <div class="section-divider"></div>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications">
+    <!-- Credentials Section -->
+    <section id="certifications" class="credentials-section">
         <div class="container">
             <div class="section-header">
-                <h2>Certifications</h2>
+                <h2>Certifications & Continuous Learning</h2>
                 <div class="underline"></div>
+                <p class="recruiter-note">My formal certifications and ongoing hands-on module achievements.</p>
             </div>
-            <div class="certifications-content" style="flex-direction: column; align-items: center; gap: 24px;">
-                <div class="certification-card"
-                    style="border: 2px solid var(--primary-color); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
-                    <div class="certification-logo">
-                        <i class="fas fa-robot" style="color: var(--primary-color); font-size: 3.5rem;"></i>
-                    </div>
-                    <div class="certification-details">
-                        <h3>Databricks Certified Generative AI Engineer Associate</h3>
-                        <p style="font-weight: 500; margin-bottom: 8px;">Issued February 17, 2026 • Expires February 17,
-                            2028</p>
-                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Design and
-                            implement LLM-enabled solutions, RAG applications, and LLM chains using Databricks Vector
-                            Search, Model Serving, MLflow, and Unity Catalog.</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                            <span
-                                style="font-size: 0.75rem; background: rgba(59, 130, 246, 0.15); color: var(--secondary-color); padding: 4px 10px; border-radius: 12px;">GenAI</span>
-                            <span
-                                style="font-size: 0.75rem; background: rgba(59, 130, 246, 0.15); color: var(--secondary-color); padding: 4px 10px; border-radius: 12px;">RAG</span>
-                            <span
-                                style="font-size: 0.75rem; background: rgba(59, 130, 246, 0.15); color: var(--secondary-color); padding: 4px 10px; border-radius: 12px;">Vector
-                                Search</span>
-                            <span
-                                style="font-size: 0.75rem; background: rgba(59, 130, 246, 0.15); color: var(--secondary-color); padding: 4px 10px; border-radius: 12px;">MLflow</span>
-                            <span
-                                style="font-size: 0.75rem; background: rgba(59, 130, 246, 0.15); color: var(--secondary-color); padding: 4px 10px; border-radius: 12px;">LLM
-                                Chains</span>
+            
+            <div class="credentials-grid">
+                <!-- Left Column: Certs -->
+                <div class="certs-column">
+                    <h3 style="margin-bottom: 24px; font-size: 1.4rem;">Official Certifications</h3>
+                    <div class="certifications-content" style="display: flex; flex-direction: column; gap: 24px;">
+                        <div class="certification-card" style="border: 2px solid var(--primary-color); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                            <div class="certification-logo">
+                                <i class="fas fa-robot" style="color: var(--primary-color);"></i>
+                            </div>
+                            <div class="certification-details">
+                                <h3>Databricks Certified Generative AI Engineer Associate</h3>
+                                <p style="font-weight: 500; margin-bottom: 8px;">Issued February 17, 2026 • Expires February 17, 2028</p>
+                                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Design and implement LLM-enabled solutions, RAG applications, and LLM chains using Databricks Vector Search, Model Serving, MLflow, and Unity Catalog.</p>
+                                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                    <span class="cert-tag">GenAI</span>
+                                    <span class="cert-tag">RAG</span>
+                                    <span class="cert-tag">Vector Search</span>
+                                    <span class="cert-tag">MLflow</span>
+                                    <span class="cert-tag">LLM Chains</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certification-card">
+                            <div class="certification-logo">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="certification-details">
+                                <h3>Databricks Certified Data Engineer Associate</h3>
+                                <p>Issued October 2022</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="certification-card">
-                    <div class="certification-logo">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-details">
-                        <h3>Databricks Certified Data Engineer Associate</h3>
-                        <p>Issued October 2022</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-header" style="margin-top: 80px; margin-bottom: 40px;">
-                <h3 style="font-size: 1.8rem;">Continuous Learning: Microsoft Learn</h3>
-                <div class="underline"></div>
-                <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto;">Selected
-                    modules showcasing continuous hands-on learning outside full certifications.</p>
-            </div>
-            <div id="modules-list" class="modules-list">
-                <!-- Modules will be loaded here dynamically -->
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Work Experience Section -->
-    <section id="work-experience" class="work-experience-section">
-        <div class="container">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-date">Mar 2021 – Present</div>
-                    <div class="experience-content">
-                        <h3>Data Engineer</h3>
-                        <span class="company">Solita | Oulu, Finland</span>
-                        <ul style="margin-top: 10px; padding-left: 20px; color: var(--text-muted);">
-                            <li>Acting as a Data Engineer modernizing mission-critical data platforms for a major
-                                Finnish pension insurance company.</li>
-                            <li>Designing and implementing domain-oriented architecture (Data Mesh) to serve investment,
-                                risk management, and actuarial reporting.</li>
-                            <li>Leading legacy migrations with automated parallel run testing to ensure 100% data
-                                consistency.</li>
-                            <li>Building scalable pipelines for liability calculations, financial data aggregation, and
-                                regulatory compliance (e.g. EUDR).</li>
-                            <li><strong>Stack:</strong> Azure Databricks, PySpark, Python, Azure Data Factory, dbt, SQL,
-                                Terraform.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-date">Aug 2020 – Dec 2020</div>
-                    <div class="experience-content">
-                        <h3>Doctoral Student / Researcher</h3>
-                        <span class="company">University of Oulu</span>
-                        <ul style="margin-top: 10px; padding-left: 20px; color: var(--medium-text-color);">
-                            <li>Research in Academic Analytics.</li>
-                            <li>Explored Business Intelligence and Data Mining solutions for Higher Education.</li>
-                            <li>Teaching assistant for Python basics course.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-date">Jun 2019 – Aug 2020</div>
-                    <div class="experience-content">
-                        <h3>Research Assistant</h3>
-                        <span class="company">University of Oulu</span>
-                        <ul style="margin-top: 10px; padding-left: 20px; color: var(--medium-text-color);">
-                            <li><strong>Learning Analytics:</strong> Data cleaning, feature engineering, and exploratory
-                                data analysis.</li>
-                            <li><strong>Ad-hoc Analysis:</strong> Provided customized reports beyond standard BI tools.
-                            </li>
-                            <li><strong>Master's Thesis:</strong> "Simulation analysis of higher education teaching
-                                linked with financing model."</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-date">Apr 2018 – Jun 2019</div>
-                    <div class="experience-content">
-                        <h3>Property Maintenance</h3>
-                        <span class="company">ISS A/S</span>
+                <!-- Right Column: Modules -->
+                <div class="modules-column">
+                    <h3 style="margin-bottom: 24px; font-size: 1.4rem;">Microsoft Learn Modules</h3>
+                    <div id="modules-list" class="modules-list">
+                        <!-- Modules will be loaded here dynamically -->
                     </div>
                 </div>
             </div>

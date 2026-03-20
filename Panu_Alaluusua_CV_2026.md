@@ -33,7 +33,7 @@ Toimintatapani perustuu tiiviiseen kumppanuuteen liiketoiminnan kanssa, datan la
 ### **Solita** | Data Engineer
 *Maaliskuu 2021 – Nykyhetki | Oulu*
 
-Toimin datakehittäjänä suuren suomalaisen työeläkeyhtiön kriittisissä dataprojekteissa, vastaten teknisestä toteutuksesta ja tiimin ohjaamisesta. Rakennan ja modernisoin data-alustaa, joka palvelee sijoitustoimintaa, riskienhallintaa, aktuaarilaskentaa ja regulatorista raportointia.
+Toimin datakehittäjänä suuren suomalaisen työeläkeyhtiön kriittisissä dataprojekteissa, vastaten teknisestä toteutuksesta. Rakennan ja modernisoin data-alustaa, joka palvelee sijoitustoimintaa, riskienhallintaa, aktuaarilaskentaa ja regulatorista raportointia.
 
 **Strateginen vaikuttavuus & Data-alustan kehitys:**
 
