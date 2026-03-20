@@ -30,10 +30,10 @@ Toimintatapani perustuu tiiviiseen kumppanuuteen liiketoiminnan kanssa, datan la
 
 ## **Työkokemus**
 
-### **Solita** | Data Engineer (Lead Developer)
+### **Solita** | Data Engineer
 *Maaliskuu 2021 – Nykyhetki | Oulu*
 
-Toimin pääkehittäjänä (Lead Developer) suuren suomalaisen työeläkeyhtiön kriittisissä dataprojekteissa, vastaten teknisestä toteutuksesta ja tiimin ohjaamisesta. Rakennan ja modernisoin data-alustaa, joka palvelee sijoitustoimintaa, riskienhallintaa, aktuaarilaskentaa ja regulatorista raportointia.
+Toimin datakehittäjänä suuren suomalaisen työeläkeyhtiön kriittisissä dataprojekteissa, vastaten teknisestä toteutuksesta ja tiimin ohjaamisesta. Rakennan ja modernisoin data-alustaa, joka palvelee sijoitustoimintaa, riskienhallintaa, aktuaarilaskentaa ja regulatorista raportointia.
 
 **Strateginen vaikuttavuus & Data-alustan kehitys:**
 
@@ -52,7 +52,6 @@ Toimin pääkehittäjänä (Lead Developer) suuren suomalaisen työeläkeyhtiön
 *   **Vastuuvelka- & Riskidataputket:**
     *   Rakensin skaalautuvat dataputket, jotka laskevat ja aggregoivat dataa **vastuuvelka- ja vakavaraisuuslaskentaa** varten.
     *   *Teknologia:* Databricks, PySpark, Azure Data Lake, Delta Lake.
-    *   *Impakti:* Automatisoitu regulatorinen raportointi (Solvency II, IFRS), varmistettu datan oikeellisuus ja auditointikyky.
 
 *   **Finanssidatan aggregointijärjestelmä:**
     *   Rakensin kriittisen aggregointimoottorin **monivaluuttaisille kassasaldoille** ja rahoitusinstrumenteille.
@@ -73,10 +72,9 @@ Toimin pääkehittäjänä (Lead Developer) suuren suomalaisen työeläkeyhtiön
     *   *Arkkitehtuuri:* Suunnittelin **erillisen, tietoturvallisen** ratkaisun Azure Web Apps -alustalle (Docker, Terraform), varmistaen tiukan eriytymisen auditoitavuutta varten.
     *   *Automatisointi:* Korvasi manuaalisen prosessin automatisoidulla `GET → MODIFY → POST` -integraatiolla.
 
-**AI-avusteiset datakehitysmenetelmät:**
-*   Hyödynnän aktiivisesti **LLM-avusteista koodausta** (Cursor, Claude Code) erityisesti **datakehityksessä** – dataputkien, transformaatioiden ja testauksen rakentamisessa.
-*   Sovellan **Spec-Driven Development** ja **Context Modeling** -työtapoja, jotka mahdollistavat nopeat iteraatiosyklit ja korkean koodilaadun datatuotteiden kehittämisessä.
-*   Tämä lähestymistapa on osoittautunut erityisen tehokkaaksi monimutkaisissa datakehitysprojekteissa, joissa vaatimukset kehittyvät nopeasti.
+**AI-avusteiset kehitysmenetelmät:**
+*   Hyödynnän aktiivisesti **LLM-avusteista koodausta** (Cursor, Claude Code) tuottavuuden ja laadun parantamiseksi.
+*   Sovellan **Spec-Driven Development** ja **Context Modeling** -työtapoja AI-avusteisessa kehityksessä.
 
 ---
 

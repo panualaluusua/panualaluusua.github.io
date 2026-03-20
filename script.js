@@ -149,4 +149,29 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
     });
 
+    // Render Microsoft Learn Modules as a compact list
+    const modulesList = document.getElementById('modules-list');
+    if (modulesList && typeof modulesData !== 'undefined') {
+        modulesData.forEach(mod => {
+            const item = document.createElement('div');
+            item.className = 'module-item';
+            
+            const tagsHtml = mod.tags.map(tag => `<span>${tag}</span>`).join('');
+            
+            item.innerHTML = `
+                <div class="module-info">
+                    <i class="fas ${mod.icon}"></i>
+                    <div class="module-text">
+                        <h4>${mod.title}</h4>
+                        <div class="module-tags-list">${tagsHtml}</div>
+                    </div>
+                </div>
+                <a href="${mod.link}" target="_blank" class="module-item-link" aria-label="View module">
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            `;
+            modulesList.appendChild(item);
+        });
+    }
+
 }); 

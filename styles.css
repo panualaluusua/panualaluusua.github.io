@@ -462,6 +462,99 @@ nav ul li a.active {
     /* Gold for cert */
 }
 
+/* Continuous Learning Modules List */
+.modules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.module-item {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 14px 20px;
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--primary-color);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.module-item:hover {
+    transform: translateX(4px);
+    border-color: var(--secondary-color);
+    background: rgba(30, 41, 59, 0.6);
+}
+
+.module-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.module-info i {
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+    width: 24px;
+    text-align: center;
+}
+
+.module-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.module-text h4 {
+    font-size: 0.95rem;
+    margin: 0;
+    color: var(--text-main);
+}
+
+.module-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.module-tags-list span {
+    font-size: 0.7rem;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--secondary-color);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.module-item-link {
+    color: var(--text-muted);
+    padding: 8px;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.module-item-link:hover {
+    color: var(--primary-color);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+@media (max-width: 600px) {
+    .module-item {
+        align-items: flex-start;
+    }
+    .module-info {
+        align-items: flex-start;
+    }
+    .module-info i {
+        margin-top: 2px;
+    }
+}
+
 /* Work Experience */
 .experience-timeline {
     position: relative;
