@@ -4,538 +4,1751 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panu Alaluusua - Data Engineer Portfolio | Azure, Databricks & GenAI</title>
-
-    <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="Panu Alaluusua - Data Engineer specializing in Azure, Databricks & finance domain architecture, with certified expertise in GenAI & RAG applications.">
-    <meta name="keywords"
-        content="data engineer, generative ai, databricks, rag applications, llm, pyspark, dbt, data platform, mlflow, vector search, azure, finland, oulu, ai engineer">
-    <meta name="author" content="Panu Alaluusua">
-
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://panualaluusua.fi/">
-    <meta property="og:title" content="Panu Alaluusua - AI Data Engineer Portfolio">
-    <meta property="og:description"
-        content="AI-powered data platforms | Azure + Databricks + GenAI | Databricks Certified GenAI Engineer">
-    <meta property="og:image" content="https://panualaluusua.fi/android-chrome-512x512.png">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://panualaluusua.fi/">
-    <meta name="twitter:title" content="Panu Alaluusua - AI Data Engineer Portfolio">
-    <meta name="twitter:description"
-        content="AI-powered data platforms | Azure + Databricks + GenAI | Databricks Certified GenAI Engineer">
-    <meta name="twitter:image" content="https://panualaluusua.fi/android-chrome-512x512.png">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://panualaluusua.fi/">
-
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <title>Panu Alaluusua — Data Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
         rel="stylesheet">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ── Tokens ── */
+        :root {
+            --bg: oklch(12% 0.008 65);
+            --bg2: oklch(16% 0.009 65);
+            --bg3: oklch(20% 0.009 65);
+            --border: oklch(24% 0.007 65);
+            --main: oklch(92% 0.005 80);
+            --muted: oklch(56% 0.006 75);
+            --faint: oklch(36% 0.006 75);
+            --accent: oklch(70% 0.14 58);
+            --accent2: oklch(60% 0.12 58);
+            --radius: 3px;
+            --font: 'DM Sans', system-ui, sans-serif;
+            --max: 1100px;
+            --section: 120px;
+        }
+
+        /* ── Reset ── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            font-family: var(--font);
+            cursor: pointer;
+        }
+
+        /* ── Scroll progress ── */
+        #scroll-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--accent);
+            width: 0%;
+            z-index: 9999;
+            transition: width .1s linear;
+        }
+
+        /* ── Label utility ── */
+        .label {
+            font-size: 11px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        /* ── Container ── */
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ═══════════════════ NAV ═══════════════════ */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: oklch(12% 0.008 65 / .92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 40px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: .01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: var(--muted);
+            font-weight: 400;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--main);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--main);
+            border-radius: 1px;
+            transition: .3s;
+        }
+
+        /* ═══════════════════ HERO ═══════════════════ */
+        #home {
+            padding-top: 140px;
+            padding-bottom: 80px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 240px;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid oklch(70% 0.14 58 / .3);
+            background: oklch(70% 0.14 58 / .07);
+            padding: 5px 14px;
+            border-radius: 100px;
+            margin-bottom: 40px;
+        }
+
+        .hero-badge span.dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .hero-badge span.text {
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .hero-h1 {
+            font-size: clamp(44px, 6vw, 72px);
+            font-weight: 300;
+            line-height: 1.05;
+            letter-spacing: -.03em;
+            margin-bottom: 28px;
+        }
+
+        .hero-h1 .arrow {
+            color: var(--accent);
+        }
+
+        .hero-sub {
+            font-size: 17px;
+            color: var(--muted);
+            line-height: 1.8;
+            max-width: 520px;
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+
+        .spec-pills {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+
+        .spec-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--accent);
+            background: oklch(70% 0.14 58 / .1);
+            border: 1px solid oklch(70% 0.14 58 / .25);
+            padding: 7px 14px;
+            border-radius: 2px;
+            letter-spacing: .02em;
+        }
+
+        .spec-pill i {
+            font-size: 11px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            padding: 12px 28px;
+            border-radius: var(--radius);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .03em;
+            transition: filter .2s, transform .15s;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: 12px 24px;
+            border-radius: var(--radius);
+            font-size: 13px;
+            transition: border-color .2s, color .2s, transform .15s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent2);
+            color: var(--main);
+            transform: translateY(-1px);
+        }
+
+        /* Profile placeholder */
+        .hero-photo {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .hero-photo svg {
+            opacity: .35;
+        }
+
+        .hero-photo span {
+            font-size: 10px;
+            color: var(--faint);
+            font-family: monospace;
+        }
+
+        /* Stats row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-top: 72px;
+            border-top: 1px solid var(--border);
+            padding-top: 40px;
+        }
+
+        .stat {
+            padding-right: 32px;
+            border-right: 1px solid var(--border);
+            margin-right: 32px;
+        }
+
+        .stat:last-child {
+            border-right: none;
+            margin-right: 0;
+        }
+
+        .stat-n {
+            font-size: 36px;
+            font-weight: 300;
+            color: var(--accent);
+            letter-spacing: -.02em;
+            line-height: 1;
+        }
+
+        .stat-l {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 6px;
+            letter-spacing: .02em;
+        }
+
+        /* ═══════════════════ SECTION SHARED ═══════════════════ */
+        section {
+            padding: var(--section) 0;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+        }
+
+        .section-head {
+            margin-bottom: 56px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 300;
+            letter-spacing: -.02em;
+            margin-top: 12px;
+        }
+
+        /* ═══════════════════ CONTEXT LAYER ═══════════════════ */
+        .cl-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .cl-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .cl-pillar {
+            background: var(--bg);
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: background .2s;
+        }
+
+        .cl-pillar:hover {
+            background: var(--bg2);
+        }
+
+        .cl-icon {
+            font-size: 20px;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .cl-pillar h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--main);
+        }
+
+        .cl-pillar p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        @media (max-width: 900px) {
+            .cl-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .cl-pillars {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ═══════════════════ EXPERIENCE ═══════════════════ */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            max-width: 760px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            bottom: 6px;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .exp-item {
+            position: relative;
+            margin-bottom: 52px;
+        }
+
+        .exp-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-dot {
+            position: absolute;
+            left: -34px;
+            top: 7px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 1px solid var(--accent);
+            background: var(--bg);
+        }
+
+        .exp-date {
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 14px;
+        }
+
+        .exp-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            transition: border-color .2s;
+        }
+
+        .exp-card:hover {
+            border-color: var(--accent2);
+        }
+
+        .exp-card h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .exp-card .company {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 500;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .exp-card ul {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .exp-card li {
+            font-size: 14px;
+            color: var(--muted);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .exp-card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 12px;
+        }
+
+        /* ═══════════════════ PROJECTS ═══════════════════ */
+        .filter-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: 7px 20px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: .04em;
+            transition: .2s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: oklch(70% 0.14 58 / .07);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .project-card {
+            background: var(--bg);
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            transition: background .2s;
+        }
+
+        .project-card:hover {
+            background: var(--bg2);
+        }
+
+        .project-card[style*="none"] {
+            display: none !important;
+        }
+
+        .proj-tag {
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .project-card h3 {
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .proj-challenge {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .proj-challenge strong {
+            color: var(--main);
+            font-weight: 500;
+        }
+
+        .tech-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tech-tag {
+            font-size: 11px;
+            background: var(--bg3);
+            color: var(--muted);
+            padding: 4px 10px;
+            border-radius: 2px;
+            letter-spacing: .03em;
+        }
+
+        /* ═══════════════════ PASSION PROJECTS ═══════════════════ */
+        .passion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .passion-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: border-color .2s, background .2s;
+        }
+
+        .passion-card:hover {
+            border-color: var(--accent2);
+            background: oklch(18% 0.009 65);
+        }
+
+        .passion-card.dashed {
+            border-style: dashed;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .passion-card h3 {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .passion-card p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .passion-tag {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: var(--muted);
+            background: var(--bg3);
+            padding: 2px 8px;
+            border-radius: 2px;
+            align-self: flex-start;
+        }
+
+        .passion-links {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .passion-link {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: color .2s;
+        }
+
+        .passion-link:hover {
+            color: var(--main);
+        }
+
+        .views-badge {
+            font-size: 11px;
+            background: oklch(60% 0.14 220 / .12);
+            color: oklch(65% 0.1 220);
+            padding: 3px 8px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* ═══════════════════ BLOG ═══════════════════ */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .blog-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: border-color .2s;
+        }
+
+        .blog-card:hover {
+            border-color: var(--accent2);
+        }
+
+        .blog-card a {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .blog-cover {
+            height: 160px;
+            background: var(--bg3);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blog-cover.placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--faint);
+            font-size: 24px;
+        }
+
+        .blog-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 16px;
+        }
+
+        .blog-meta span {
+            font-size: 11px;
+            color: var(--faint);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .blog-body h3 {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--main);
+        }
+
+        .blog-body p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .blog-tag {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .blog-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        .blog-footer .read {
+            font-size: 12px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .blog-footer .reactions {
+            font-size: 12px;
+            color: var(--faint);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .blog-loading {
+            color: var(--muted);
+            font-size: 14px;
+            padding: 40px 0;
+        }
+
+        /* ═══════════════════ SKILLS ═══════════════════ */
+        .skills-content {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .skill-cat h3 {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--muted);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .skill-cat h3::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .skills-icons {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-item {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: border-color .2s, background .2s;
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent2);
+            background: var(--bg3);
+        }
+
+        .skill-item i {
+            color: var(--accent);
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            font-size: 13px;
+            color: var(--muted);
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            padding: 7px 16px;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            transition: border-color .2s, color .2s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent2);
+            color: var(--main);
+        }
+
+        .skill-tag i {
+            color: var(--accent);
+            font-size: 12px;
+        }
+
+        /* ═══════════════════ CERTIFICATIONS ═══════════════════ */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .cert-col h3 {
+            font-size: 13px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 24px;
+        }
+
+        .cert-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            background: var(--bg2);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            transition: border-color .2s;
+        }
+
+        .cert-card.featured {
+            border-color: var(--accent2);
+            background: oklch(16% 0.012 65);
+        }
+
+        .cert-card:hover {
+            border-color: var(--accent);
+        }
+
+        .cert-icon {
+            font-size: 28px;
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .cert-details h4 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .cert-details .cert-date {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .cert-details p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .cert-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .cert-tag {
+            font-size: 11px;
+            background: oklch(70% 0.14 58 / .1);
+            color: var(--accent2);
+            border: 1px solid oklch(70% 0.14 58 / .2);
+            padding: 3px 10px;
+            border-radius: 2px;
+        }
+
+        .modules-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .module-item {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-left: 2px solid var(--accent2);
+            border-radius: var(--radius);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            transition: transform .15s, border-color .2s;
+        }
+
+        .module-item:hover {
+            transform: translateX(3px);
+            border-color: var(--accent);
+        }
+
+        .module-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .module-info i {
+            font-size: 14px;
+            color: var(--accent2);
+            width: 20px;
+            text-align: center;
+        }
+
+        .module-text h4 {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--main);
+        }
+
+        .module-tags-list {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin-top: 3px;
+        }
+
+        .module-tags-list span {
+            font-size: 10px;
+            background: oklch(70% 0.14 58 / .1);
+            color: var(--accent2);
+            padding: 1px 7px;
+            border-radius: 8px;
+        }
+
+        .module-item-link {
+            color: var(--faint);
+            padding: 6px;
+            border-radius: 50%;
+            transition: color .2s;
+        }
+
+        .module-item-link:hover {
+            color: var(--accent);
+        }
+
+        /* ═══════════════════ CONTACT ═══════════════════ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: start;
+            max-width: 860px;
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            font-size: 14px;
+            transition: border-color .2s;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent2);
+        }
+
+        .contact-item i {
+            color: var(--accent);
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-item a {
+            color: var(--muted);
+            transition: color .2s;
+        }
+
+        .contact-item a:hover {
+            color: var(--main);
+        }
+
+        .contact-item span {
+            color: var(--muted);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 7px;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            color: var(--main);
+            padding: 12px 14px;
+            border-radius: var(--radius);
+            font-size: 14px;
+            font-family: var(--font);
+            transition: border-color .2s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        #contact-success {
+            font-size: 13px;
+            color: var(--accent);
+            margin-top: 12px;
+        }
+
+        /* ═══════════════════ FOOTER ═══════════════════ */
+        footer {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            padding: 36px 0;
+        }
+
+        .footer-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-inner p {
+            font-size: 13px;
+            color: var(--faint);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-social a i {
+            font-size: 18px;
+            color: var(--faint);
+            transition: color .2s;
+        }
+
+        .footer-social a:hover i {
+            color: var(--accent);
+        }
+
+        /* ═══════════════════ TWEAKS PANEL ═══════════════════ */
+        #tweaks-panel {
+            display: none;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 20px;
+            z-index: 5000;
+            width: 240px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .5);
+        }
+
+        #tweaks-panel h4 {
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: 16px;
+        }
+
+        .tweak-row {
+            margin-bottom: 14px;
+        }
+
+        .tweak-row label {
+            display: block;
+            font-size: 11px;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .tweak-row input[type=color] {
+            width: 40px;
+            height: 26px;
+            border: 1px solid var(--border);
+            background: none;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .tweak-row select {
+            width: 100%;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            color: var(--main);
+            padding: 6px 10px;
+            border-radius: 2px;
+            font-family: var(--font);
+            font-size: 12px;
+            outline: none;
+        }
+
+        /* ═══════════════════ MOBILE ═══════════════════ */
+        @media (max-width: 768px) {
+            :root {
+                --section: 72px;
+            }
+
+            .wrap {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 60px;
+                right: 0;
+                width: 70%;
+                height: calc(100vh - 60px);
+                background: var(--bg2);
+                padding: 40px 28px;
+                gap: 28px;
+                border-left: 1px solid var(--border);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 16px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-photo {
+                display: none;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+
+            .stat {
+                border-right: none;
+                margin-right: 0;
+                padding-right: 0;
+            }
+
+            .certs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .hero-h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="scroll-progress"></div>
 
-    <!-- Header -->
+    <div id="scroll-bar"></div>
+
+    <!-- NAV -->
     <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Panu Alaluusua</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#work-experience">Work Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#passion-projects">Passion Projects</a></li>
-                    <li><a href="#blog">Writing</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
-                                        <li><a href="#contact">Contact</a></li>
-                </ul>
+        <div class="nav-inner">
+            <span class="nav-logo">Panu Alaluusua</span>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#work-experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#passion-projects">Passion</a>
+                <a href="#blog">Writing</a>
+                <a href="#skills">Skills</a>
+                <a href="#certifications">Certs</a>
+                <a href="#contact">Contact</a>
             </nav>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="theme-toggle">
-                <i class="fas fa-moon"></i>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Hello, I'm <span>Panu Alaluusua</span></h1>
-                <h2>Data Engineer</h2>
-                <p>I am a Data Engineer with a unique background that blends Finance (M.Sc.) with strong technical
-                    expertise in modern data platforms. While utilizing my 5 years of experience building
-                    mission-critical data products, I am actively transitioning into AI Data Engineering, aiming to
-                    build scalable GenAI and RAG applications.</p>
-                <div class="key-achievements">
-                    <span>Databricks Certified GenAI Engineer</span>
-                    <span>Azure + AI Solutions</span>
-                    <span>RAG & LLM Applications</span>
-                    <span>Finance Domain Expertise</span>
+    <!-- HERO -->
+    <section id="home">
+        <div class="wrap">
+            <div class="hero-grid">
+                <div>
+                    <div class="hero-badge">
+                        <span class="dot"></span>
+                        <span class="text">AI Data Engineer · Open to roles</span>
+                    </div>
+                    <h1 class="hero-h1">
+                        Building the<br>
+                        <span class="arrow">context layer</span><br>
+                        for AI agents.
+                    </h1>
+                    <p class="hero-sub">
+                        I design the data infrastructure that makes AI systems intelligent — RAG pipelines, vector
+                        search, and LLM integrations grounded in reliable, governed data. 5 years in finance-domain data
+                        engineering. Databricks Certified GenAI Engineer.
+                    </p>
+                    <div class="spec-pills">
+                        <span class="spec-pill"><i class="fas fa-layer-group"></i> RAG Pipelines</span>
+                        <span class="spec-pill"><i class="fas fa-search"></i> Vector Search</span>
+                        <span class="spec-pill"><i class="fas fa-robot"></i> LLM Integration</span>
+                        <span class="spec-pill"><i class="fas fa-sitemap"></i> Agentic Workflows</span>
+                    </div>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="scrollTo('#projects')">View Work</button>
+                        <button class="btn-secondary" onclick="scrollTo('#contact')">Contact Me</button>
+                        <a href="Panu_Alaluusua_CV_2026.md" download>
+                            <button class="btn-secondary"><i class="fas fa-download" style="font-size:11px"></i>
+                                Resume</button>
+                        </a>
+                    </div>
+                    <div class="stats-row">
+                        <div class="stat">
+                            <div class="stat-n">5+</div>
+                            <div class="stat-l">Years experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-n">100+</div>
+                            <div class="stat-l">Notebooks migrated</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-n">100%</div>
+                            <div class="stat-l">Data consistency</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-n">2026</div>
+                            <div class="stat-l">GenAI certified</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn primary-btn">View My Work</a>
-                    <a href="#contact" class="btn primary-btn">Contact Me</a>
-                    <a href="Panu_Alaluusua_CV.md" class="btn secondary-btn" download><i
-                            class="fas fa-file-download"></i> Download Resume</a>
+                <div class="hero-photo">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="18" r="10" stroke="#92826b" stroke-width="1.5" />
+                        <path d="M4 44c0-11.046 8.954-20 20-20s20 8.954 20 20" stroke="#92826b" stroke-width="1.5" />
+                    </svg>
+                    <span>profile photo</span>
                 </div>
             </div>
-
-
         </div>
     </section>
 
-    <div class="section-divider"></div>
+    <div class="divider"></div>
 
-    <!-- Work Experience Section -->
-    <section id="work-experience" class="work-experience-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Work Experience</h2>
-                <div class="underline"></div>
+    <!-- CONTEXT LAYER STRIP -->
+    <section id="context-layer" style="padding: 64px 0;">
+        <div class="wrap">
+            <div class="cl-grid">
+                <div class="cl-intro">
+                    <span class="label">Specialization</span>
+                    <h2 style="font-size:26px;font-weight:300;letter-spacing:-.02em;margin-top:10px;line-height:1.3">
+                        Context engineering<br>for AI systems
+                    </h2>
+                    <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:12px;max-width:320px">
+                        LLMs are only as good as the context they receive. I build the data layer that grounds AI agents
+                        in accurate, governed, domain-specific knowledge.
+                    </p>
+                </div>
+                <div class="cl-pillars">
+                    <div class="cl-pillar">
+                        <div class="cl-icon"><i class="fas fa-layer-group"></i></div>
+                        <h4>RAG Pipelines</h4>
+                        <p>Retrieval-Augmented Generation architectures on Databricks — chunking, embedding, retrieval
+                            and re-ranking for finance-domain documents.</p>
+                    </div>
+                    <div class="cl-pillar">
+                        <div class="cl-icon"><i class="fas fa-search"></i></div>
+                        <h4>Vector Search</h4>
+                        <p>Databricks Vector Search & Unity Catalog for governed, low-latency semantic retrieval over
+                            large document corpora.</p>
+                    </div>
+                    <div class="cl-pillar">
+                        <div class="cl-icon"><i class="fas fa-sitemap"></i></div>
+                        <h4>Agentic Workflows</h4>
+                        <p>LLM chains and agent orchestration using MLflow, Model Serving, and structured tool-use
+                            patterns for data-grounded AI.</p>
+                    </div>
+                </div>
             </div>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-date">Mar 2021 – Present</div>
-                    <div class="experience-content">
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- WORK EXPERIENCE -->
+    <section id="work-experience">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="label">Career</span>
+                <h2>Work Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="exp-item">
+                    <div class="exp-dot"></div>
+                    <div class="exp-date">Mar 2021 – Present</div>
+                    <div class="exp-card">
                         <h3>Data Engineer</h3>
-                        <span class="company">Solita | Oulu, Finland</span>
-                        <ul style="margin-top: 10px; padding-left: 20px; color: var(--text-muted);">
-                            <li>Acting as a Data Engineer modernizing mission-critical data platforms for a major
-                                Finnish pension insurance company.</li>
-                            <li>Designing and implementing domain-oriented architecture (Data Mesh) to serve investment,
-                                risk management, and actuarial reporting.</li>
-                            <li>Leading legacy migrations with automated parallel run testing to ensure 100% data
+                        <span class="company">Solita · Oulu, Finland</span>
+                        <ul>
+                            <li>Modernizing mission-critical data platforms for a major Finnish pension insurance
+                                company.</li>
+                            <li>Designing domain-oriented architecture (Data Mesh) for investment, risk management, and
+                                actuarial reporting.</li>
+                            <li>Leading legacy migrations with automated parallel run testing — proven 100% data
                                 consistency.</li>
                             <li>Building scalable pipelines for liability calculations, financial data aggregation, and
-                                regulatory compliance (e.g. EUDR).</li>
-                            <li><strong>Stack:</strong> Azure Databricks, PySpark, Python, Azure Data Factory, dbt, SQL,
-                                Terraform.</li>
+                                regulatory compliance (EUDR).</li>
+                            <li><strong style="color:var(--main);font-weight:500">Stack:</strong> Azure Databricks ·
+                                PySpark · Python · Azure Data Factory · dbt · SQL · Terraform</li>
                         </ul>
                     </div>
                 </div>
-
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-date">Aug 2020 – Dec 2020</div>
-                    <div class="experience-content">
+                <div class="exp-item">
+                    <div class="exp-dot"></div>
+                    <div class="exp-date">Aug 2020 – Dec 2020</div>
+                    <div class="exp-card">
                         <h3>Doctoral Student / Researcher</h3>
                         <span class="company">University of Oulu</span>
-                        <ul style="margin-top: 10px; padding-left: 20px; color: var(--text-muted);">
-                            <li>Research in Academic Analytics.</li>
-                            <li>Explored Business Intelligence and Data Mining solutions for Higher Education.</li>
+                        <ul>
+                            <li>Research in Academic Analytics — BI and Data Mining solutions for Higher Education.</li>
                             <li>Teaching assistant for Python basics course.</li>
                         </ul>
                     </div>
                 </div>
-
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-date">Jun 2019 – Aug 2020</div>
-                    <div class="experience-content">
+                <div class="exp-item">
+                    <div class="exp-dot"></div>
+                    <div class="exp-date">Jun 2019 – Aug 2020</div>
+                    <div class="exp-card">
                         <h3>Research Assistant</h3>
                         <span class="company">University of Oulu</span>
-                        <ul style="margin-top: 10px; padding-left: 20px; color: var(--text-muted);">
-                            <li><strong>Learning Analytics:</strong> Data cleaning, feature engineering, and exploratory
-                                data analysis.</li>
-                            <li><strong>Ad-hoc Analysis:</strong> Provided customized reports beyond standard BI tools.
-                            </li>
-                            <li><strong>Master's Thesis:</strong> "Simulation analysis of higher education teaching
-                                linked with financing model."</li>
+                        <ul>
+                            <li>Learning Analytics: data cleaning, feature engineering, EDA.</li>
+                            <li>Ad-hoc analysis beyond standard BI tools.</li>
+                            <li>Master's Thesis: "Simulation analysis of higher education teaching linked with financing
+                                model."</li>
                         </ul>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-date">Apr 2018 – Jun 2019</div>
-                    <div class="experience-content">
-                        <h3>Property Maintenance</h3>
-                        <span class="company">ISS A/S</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="section-divider"></div>
+    <div class="divider"></div>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="label">Portfolio</span>
                 <h2>My Projects</h2>
-                <div class="underline"></div>
-                <!-- GitHub Activity Removed for cleaner look or keep if needed, keeping for now -->
-                <div style="display:flex;flex-direction:column;align-items:center;margin:16px 0 8px 0;">
-                    <span
-                        style="font-size:0.98em;color:#888;font-weight:500;margin-bottom:2px;letter-spacing:0.01em;">Latest
-                        Commit</span>
-                    <div id="github-activity"
-                        style="background:#f4f6fa;border-radius:7px;padding:7px 18px 7px 14px;font-size:0.97em;color:#374151;min-width:220px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 1px 4px rgba(30,64,175,0.03);">
-                        <span id="github-activity-content"></span>
-                    </div>
-                </div>
-                <div style="width:100%;height:1px;background:#e5e7eb;margin:18px 0 18px 0;"></div>
-
             </div>
-
-            <div class="projects-filter">
+            <div class="filter-row">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="data-engineering">Data Engineering</button>
                 <button class="filter-btn" data-filter="analytics">Analytics</button>
             </div>
-
             <div class="projects-grid">
-                <!-- Project 1 -->
                 <div class="project-card" data-category="data-engineering">
-                    <div class="project-info">
-                        <h3>Finance & Investing Data Platform</h3>
-                        <p class="role-date">Role: Data Engineer (End-to-End) | Jan 2023 - Aug 2025</p>
-                        <div class="project-details-segment">
-                            <h4>The Challenge:</h4>
-                            <p>To modernize investment performance calculations and liberate dataflows from legacy
-                                systems by building a specialized, domain-specific data platform.</p>
-                        </div>
-                        <div class="project-details-segment">
-                            <h4>The Solution:</h4>
-                            <p>Built an isolated platform segment in close collaboration with the customer. Designed and
-                                implemented daily end-to-end pipelines for Return, Risk, and market data. Revamped cash
-                                flow reporting and orchestrated SQL warehouse migrations.</p>
-                        </div>
-                        <div class="project-tech-stack">
-                            <span class="tech-tag">Azure Data Factory</span>
-                            <span class="tech-tag">Databricks</span>
-                            <span class="tech-tag">DBT</span>
-                            <span class="tech-tag">SQL Servers</span>
-                            <span class="tech-tag">Bicep</span>
-                        </div>
+                    <div class="proj-tag">Data Engineering · 2023–2025</div>
+                    <h3>Finance & Investing Data Platform</h3>
+                    <div class="proj-challenge">
+                        <strong>Challenge:</strong> Modernize investment performance calculations, liberating dataflows
+                        from legacy systems.
+                    </div>
+                    <div class="proj-challenge">
+                        <strong>Solution:</strong> Built an isolated platform segment with daily end-to-end pipelines
+                        for Return, Risk, and market data. Revamped cash flow reporting, orchestrated SQL warehouse
+                        migrations.
+                    </div>
+                    <div class="tech-row">
+                        <span class="tech-tag">Azure Data Factory</span>
+                        <span class="tech-tag">Databricks</span>
+                        <span class="tech-tag">dbt</span>
+                        <span class="tech-tag">SQL Servers</span>
+                        <span class="tech-tag">Bicep</span>
                     </div>
                 </div>
-
-                <!-- Project 2 -->
                 <div class="project-card" data-category="data-engineering">
-                    <div class="project-info">
-                        <h3>General Data Platform</h3>
-                        <p class="role-date">Role: Data Engineer / Platform Engineer | Jan 2023 - Aug 2025</p>
-                        <div class="project-details-segment">
-                            <h4>The Challenge:</h4>
-                            <p>Create a modern, agile data platform empowering the organization to build dataflows
-                                swiftly based on business needs.</p>
-                        </div>
-                        <div class="project-details-segment">
-                            <h4>The Solution:</h4>
-                            <p>Streamlined processes and improved reporting capabilities through a comprehensive
-                                Azure-based platform. Created Azure data services, implemented robust user
-                                management/security, and optimized data streaming.</p>
-                        </div>
-                        <div class="project-tech-stack">
-                            <span class="tech-tag">Azure Data Factory</span>
-                            <span class="tech-tag">Databricks</span>
-                            <span class="tech-tag">PySpark</span>
-                            <span class="tech-tag">Alation</span>
-                        </div>
+                    <div class="proj-tag">Platform Engineering · 2023–2025</div>
+                    <h3>General Data Platform</h3>
+                    <div class="proj-challenge">
+                        <strong>Challenge:</strong> Create a modern, agile data platform empowering the organization to
+                        build dataflows swiftly.
+                    </div>
+                    <div class="proj-challenge">
+                        <strong>Solution:</strong> Comprehensive Azure-based platform with robust user management,
+                        security, and optimized data streaming.
+                    </div>
+                    <div class="tech-row">
+                        <span class="tech-tag">Azure Data Factory</span>
+                        <span class="tech-tag">Databricks</span>
+                        <span class="tech-tag">PySpark</span>
+                        <span class="tech-tag">Alation</span>
                     </div>
                 </div>
-
-                <!-- Project 3 -->
                 <div class="project-card" data-category="data-engineering">
-                    <div class="project-info">
-                        <h3>Data Migration & GenAI-Accelerated Refactoring</h3>
-                        <p class="role-date">Role: Data Engineer | Jan 2023 - Aug 2025</p>
-                        <div class="project-details-segment">
-                            <h4>The Challenge:</h4>
-                            <p>Migrate 100+ legacy Databricks notebooks to new data sources and ensure 100% data
-                                consistency without stalling development.</p>
-                        </div>
-                        <div class="project-details-segment">
-                            <h4>The Solution:</h4>
-                            <p>Developed a custom test bench for automated regression testing and utilized GenAI
-                                augmented workflows to systematically refactor code at speed. Utilized a systematic
-                                Agentic Development Methodology to maintain strict quality control.</p>
-                        </div>
-                        <div class="project-tech-stack">
-                            <span class="tech-tag">Databricks</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">PySpark</span>
-                            <span class="tech-tag">Automated Testing</span>
-                        </div>
+                    <div class="proj-tag">GenAI + Data Eng · 2023–2025</div>
+                    <h3>Data Migration & GenAI-Accelerated Refactoring</h3>
+                    <div class="proj-challenge">
+                        <strong>Challenge:</strong> Migrate 100+ legacy Databricks notebooks to new data sources
+                        ensuring 100% data consistency.
+                    </div>
+                    <div class="proj-challenge">
+                        <strong>Solution:</strong> Custom test bench for automated regression testing + GenAI-augmented
+                        workflows for systematic refactoring at speed.
+                    </div>
+                    <div class="tech-row">
+                        <span class="tech-tag">Databricks</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PySpark</span>
+                        <span class="tech-tag">Automated Testing</span>
                     </div>
                 </div>
-
-                <!-- Project 4 -->
                 <div class="project-card" data-category="analytics">
-                    <div class="project-info">
-                        <h3>GenAI-Augmented Migration Pipeline POC</h3>
-                        <p class="role-date">Role: Lead Architect (POC)</p>
-                        <div class="project-details-segment">
-                            <h4>The Challenge:</h4>
-                            <p>Explore the feasibility of automating the migration of complex legacy Informatica
-                                workflows to modern dbt models to reduce manual refactoring effort.</p>
-                        </div>
-                        <div class="project-details-segment">
-                            <h4>The Solution:</h4>
-                            <p>Designed and partially implemented a semi-automated migration pipeline utilizing GenAI to
-                                interpret transformation logic and generate compliant dbt code. Validated the
-                                feasibility of AI-driven legacy code modernization.</p>
-                        </div>
-                        <div class="project-tech-stack">
-                            <span class="tech-tag">GenAI</span>
-                            <span class="tech-tag">dbt</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Legacy ETL</span>
-                        </div>
+                    <div class="proj-tag">GenAI · POC</div>
+                    <h3>GenAI-Augmented Migration Pipeline POC</h3>
+                    <div class="proj-challenge">
+                        <strong>Challenge:</strong> Automate migration of complex legacy Informatica workflows to modern
+                        dbt models.
+                    </div>
+                    <div class="proj-challenge">
+                        <strong>Solution:</strong> Semi-automated migration pipeline using GenAI to interpret
+                        transformation logic and generate compliant dbt code.
+                    </div>
+                    <div class="tech-row">
+                        <span class="tech-tag">GenAI</span>
+                        <span class="tech-tag">dbt</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Legacy ETL</span>
                     </div>
                 </div>
-
-                <!-- Project 5 -->
                 <div class="project-card" data-category="data-engineering">
-                    <div class="project-info">
-                        <h3>Regulatory Data Integration (EUDR Compliance)</h3>
-                        <p class="role-date">Role: Senior Integration Specialist | 2025</p>
-                        <div class="project-details-segment">
-                            <h4>The Challenge:</h4>
-                            <p>To comply with the new EU Deforestation Regulation (EUDR), the customer needed to attach
-                                specific traceability numbers to transport orders. The goal was to replace error-prone
-                                manual updates with a fully automated, auditable system.</p>
-                        </div>
-                        <div class="project-details-segment">
-                            <h4>The Solution:</h4>
-                            <p>Designed and implemented a production-ready `GET -> MODIFY -> POST` integration using
-                                Azure Web Apps Surface. Automated daily scheduling, robust error handling, full audit
-                                logging, and secure secret management.</p>
-                        </div>
-                        <div class="project-tech-stack">
-                            <span class="tech-tag">Azure Web Apps</span>
-                            <span class="tech-tag">Snowflake</span>
-                            <span class="tech-tag">Python (Flask)</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Terraform</span>
-                        </div>
+                    <div class="proj-tag">Compliance · 2025</div>
+                    <h3>Regulatory Data Integration (EUDR)</h3>
+                    <div class="proj-challenge">
+                        <strong>Challenge:</strong> Attach traceability numbers to transport orders for EU Deforestation
+                        Regulation compliance — replacing manual updates.
+                    </div>
+                    <div class="proj-challenge">
+                        <strong>Solution:</strong> Production-ready GET → MODIFY → POST integration with daily
+                        scheduling, error handling, full audit logging, and secure secret management.
+                    </div>
+                    <div class="tech-row">
+                        <span class="tech-tag">Azure Web Apps</span>
+                        <span class="tech-tag">Snowflake</span>
+                        <span class="tech-tag">Python (Flask)</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Terraform</span>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <div class="section-divider"></div>
+    <div class="divider"></div>
 
-    <!-- Passion Projects Section -->
-    <section id="passion-projects" class="passion-projects">
-        <div class="container">
-            <div class="section-header">
+    <!-- PASSION PROJECTS -->
+    <section id="passion-projects">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="label">Personal</span>
                 <h2>Architecture Sandboxes & Personal Projects</h2>
-                <div class="underline"></div>
-                <p class="recruiter-note">Beyond client work, I build things just for fun. These projects serve as my personal technical sandboxes for exploring new tech, coding apps, and testing modern data architectures.</p>
+                <p style="font-size:14px;color:var(--muted);margin-top:10px;max-width:540px">Beyond client work, I build
+                    things for fun — personal sandboxes for exploring new tech, architectures, and ideas.</p>
             </div>
-
-            <div class="passion-projects-grid">
-                <!-- Passion Project 1: Portfolio -->
-                <div class="passion-project-card">
-                    <h3>Portfolio Website</h3>
+            <div class="passion-grid">
+                <div class="passion-card">
                     <span class="passion-tag">Frontend / Modern Stack</span>
-                    <p>You are looking at it! Built with semantic HTML, CSS, and vanilla JS. Documented with `docs` and
-                        deployed via GitHub Pages.</p>
-                    <a href="https://github.com/panualaluusua/panualaluusua.github.io" target="_blank"
-                        class="passion-link">
-                        <i class="fab fa-github"></i> View Source
-                    </a>
+                    <h3>Portfolio Website</h3>
+                    <p>You are looking at it! Built with semantic HTML, CSS, and vanilla JS. Documented and deployed via
+                        GitHub Pages.</p>
+                    <div class="passion-links">
+                        <a class="passion-link" href="https://github.com/panualaluusua/panualaluusua.github.io"
+                            target="_blank"><i class="fab fa-github"></i> Source</a>
+                    </div>
                 </div>
-
-                <!-- Passion Project 2: MyWhoosh Results -->
-                <div class="passion-project-card">
-                    <h3>MyWhoosh Race Results</h3>
+                <div class="passion-card">
                     <span class="passion-tag">Data Engineering / Visualization</span>
-                    <p>Automated processing and visualization of e-cycling race results. Python scripts to parse data
-                        and generate graphics.</p>
-                    <a href="https://github.com/panualaluusua/mywhoosh_tulokset" target="_blank" class="passion-link">
-                        <i class="fab fa-github"></i> View Repository
-                    </a>
-                </div>
-
-                <!-- Passion Project 3: Cycling Events -->
-                <div class="passion-project-card">
-                    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-                        <h3>Cycling Events (Hupiprojekti)</h3>
-                        <span
-                            style="font-size:0.85em; background:rgba(59, 130, 246, 0.15); color:#60a5fa; padding:4px 8px; border-radius:12px; display:inline-flex; align-items:center; gap:5px;">
-                            <i class="fas fa-eye"></i> 183
-                        </span>
+                    <h3>MyWhoosh Race Results</h3>
+                    <p>Automated processing and visualization of e-cycling race results. Python scripts to parse and
+                        generate graphics.</p>
+                    <div class="passion-links">
+                        <a class="passion-link" href="https://github.com/panualaluusua/mywhoosh_tulokset"
+                            target="_blank"><i class="fab fa-github"></i> Repository</a>
                     </div>
+                </div>
+                <div class="passion-card">
                     <span class="passion-tag">Streamlit App & Data</span>
+                    <div style="display:flex;justify-content:space-between;align-items:center">
+                        <h3>Cycling Events</h3>
+                        <span class="views-badge"><i class="fas fa-eye"></i> 183</span>
+                    </div>
                     <p>A fun project exploring cycling events data, built with Streamlit.</p>
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                        <a href="https://pyorailytapahtumat2025.streamlit.app/" target="_blank" class="passion-link">
-                            <i class="fas fa-external-link-alt"></i> Live App
-                        </a>
-                        <a href="https://github.com/panualaluusua/pyorailytapahtumat" target="_blank"
-                            class="passion-link">
-                            <i class="fab fa-github"></i> Repository
-                        </a>
-                        <a href="https://panualaluusua.fi/docs/pyorailytapahtumat/PROJECT_DESCRIPTION/" target="_blank"
-                            class="passion-link">
-                            <i class="fas fa-book"></i> Read Docs
-                        </a>
+                    <div class="passion-links">
+                        <a class="passion-link" href="https://pyorailytapahtumat2025.streamlit.app/" target="_blank"><i
+                                class="fas fa-external-link-alt"></i> Live App</a>
+                        <a class="passion-link" href="https://github.com/panualaluusua/pyorailytapahtumat"
+                            target="_blank"><i class="fab fa-github"></i> Repo</a>
                     </div>
                 </div>
-
-                <!-- Passion Project 4: Streamlit E-SM -->
-                <div class="passion-project-card">
-                    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-                        <h3>Streamlit E-SM</h3>
-                        <span
-                            style="font-size:0.85em; background:rgba(59, 130, 246, 0.15); color:#60a5fa; padding:4px 8px; border-radius:12px; display:inline-flex; align-items:center; gap:5px;">
-                            <i class="fas fa-eye"></i> 519
-                        </span>
-                    </div>
+                <div class="passion-card">
                     <span class="passion-tag">Esports Transparency & Analytics</span>
+                    <div style="display:flex;justify-content:space-between;align-items:center">
+                        <h3>Streamlit E-SM</h3>
+                        <span class="views-badge"><i class="fas fa-eye"></i> 519</span>
+                    </div>
                     <p>E-Sports Championship transparency project.</p>
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                        <a href="https://ecycling-data-fi.streamlit.app/" target="_blank" class="passion-link">
-                            <i class="fas fa-external-link-alt"></i> Live App
-                        </a>
-                        <a href="https://github.com/panualaluusua/streamlit_e-sm" target="_blank" class="passion-link">
-                            <i class="fab fa-github"></i> Repository
-                        </a>
-                        <a href="https://panualaluusua.fi/docs/streamlit_e-sm/PROJECT_DESCRIPTION/" target="_blank"
-                            class="passion-link">
-                            <i class="fas fa-book"></i> Description
-                        </a>
-                        <a href="https://panualaluusua.fi/docs/streamlit_e-sm/LEARNINGS/" target="_blank"
-                            class="passion-link">
-                            <i class="fas fa-lightbulb"></i> Learnings
-                        </a>
+                    <div class="passion-links">
+                        <a class="passion-link" href="https://ecycling-data-fi.streamlit.app/" target="_blank"><i
+                                class="fas fa-external-link-alt"></i> Live App</a>
+                        <a class="passion-link" href="https://github.com/panualaluusua/streamlit_e-sm"
+                            target="_blank"><i class="fab fa-github"></i> Repo</a>
                     </div>
                 </div>
-
-                <!-- Passion Project 5: InsightHub -->
-                <div class="passion-project-card">
+                <div class="passion-card">
+                    <span class="passion-tag">Full Stack AI Platform</span>
                     <h3>InsightHub</h3>
-                    <span class="passion-tag">Full Stack AI Platform / Architecture</span>
-                    <p>An ambitious Full Stack AI-platform (SvelteKit + Python). "Failed due to its size", but served as
-                        a massive learning ground for architecture and complex orchestrations.</p>
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                        <a href="https://github.com/panualaluusua/insighthub" target="_blank" class="passion-link">
-                            <i class="fab fa-github"></i> Repository
-                        </a>
-                        <a href="https://panualaluusua.fi/docs/insighthub/" target="_blank" class="passion-link">
-                            <i class="fas fa-book"></i> Read Docs
-                        </a>
+                    <p>Ambitious Full Stack AI-platform (SvelteKit + Python). "Failed due to its size" but a massive
+                        learning ground for architecture and complex orchestrations.</p>
+                    <div class="passion-links">
+                        <a class="passion-link" href="https://github.com/panualaluusua/insighthub" target="_blank"><i
+                                class="fab fa-github"></i> Repo</a>
+                        <a class="passion-link" href="https://panualaluusua.fi/docs/insighthub/" target="_blank"><i
+                                class="fas fa-book"></i> Docs</a>
                     </div>
                 </div>
-
-                <!-- Passion Project 6: Centralized Docs Sync -->
-                <div class="passion-project-card">
-                    <h3>Centralized Docs Sync</h3>
+                <div class="passion-card">
                     <span class="passion-tag">DevOps / Automation</span>
-                    <p>Automated workflow to sync documentation from multiple projects into a central repository. Keeps
-                        knowledge organized and accessible.</p>
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                        <a href="https://github.com/panualaluusua/docs/blob/master/docs/keskitetty_dokumentaatio/KUVAUS.md"
-                            target="_blank" class="passion-link">
-                            <i class="fas fa-book"></i> Description
-                        </a>
-                        <a href="https://github.com/panualaluusua/docs/blob/master/docs/keskitetty_dokumentaatio/LEARNINGS.md"
-                            target="_blank" class="passion-link">
-                            <i class="fas fa-lightbulb"></i> Learnings
-                        </a>
+                    <h3>Centralized Docs Sync</h3>
+                    <p>Automated workflow to sync documentation from multiple projects into a central repository.</p>
+                    <div class="passion-links">
+                        <a class="passion-link" href="https://github.com/panualaluusua/docs" target="_blank"><i
+                                class="fas fa-book"></i> Description</a>
                     </div>
                 </div>
-
-                <!-- Link to GitHub for more -->
-                <div class="passion-project-card"
-                    style="justify-content: center; align-items: center; text-align: center; border-style: dashed;">
+                <div class="passion-card dashed">
                     <h3>More on GitHub</h3>
-                    <p style="flex-grow: 0;">Explore my other repositories, experiments, and learnings.</p>
-                    <a href="https://github.com/panualaluusua?tab=repositories" target="_blank"
-                        class="btn secondary-btn small-btn">
-                        <i class="fab fa-github"></i> Go to GitHub Profile
+                    <p>Explore other repositories, experiments, and learnings.</p>
+                    <a href="https://github.com/panualaluusua?tab=repositories" target="_blank">
+                        <button class="btn-secondary" style="font-size:12px;padding:8px 18px;margin-top:8px"><i
+                                class="fab fa-github"></i> GitHub Profile</button>
                     </a>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 
-    <div class="section-divider"></div>
+    <div class="divider"></div>
 
-    <!-- Blog Section -->
-    <section id="blog" class="blog-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Latest Writings</h2>
-                <div class="underline"></div>
-                <p class="recruiter-note">Thoughts on Data Engineering, AI, and Tech.</p>
+    <!-- BLOG -->
+    <section id="blog">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="label">Writing</span>
+                <h2>Latest Articles</h2>
+                <p style="font-size:14px;color:var(--muted);margin-top:10px">Thoughts on Data Engineering, AI, and tech.
+                </p>
             </div>
-
             <div id="blog-grid" class="blog-grid">
-                <!-- Blog posts will be loaded here dynamically -->
+                <p class="blog-loading">Loading articles…</p>
             </div>
-
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="https://dev.to/panualaluusua" target="_blank" class="btn secondary-btn">
-                    <i class="fab fa-dev"></i> View All Articles
+            <div style="margin-top:36px">
+                <a href="https://dev.to/panualaluusua" target="_blank">
+                    <button class="btn-secondary"><i class="fab fa-dev"></i> All Articles on Dev.to</button>
                 </a>
             </div>
         </div>
     </section>
 
-    <div class="section-divider inverted"></div>
+    <div class="divider"></div>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2>My Skills</h2>
-                <div class="underline"></div>
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="label">Expertise</span>
+                <h2>Skills & Technologies</h2>
             </div>
             <div class="skills-content">
-                <div class="skill-category">
-                    <h3>core Competencies</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-brain"></i></div>
-                            <h4>Generative AI Engineering</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
-                            <h4>RAG Applications</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-cogs"></i></div>
-                            <h4>AI Data Engineering</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-server"></i></div>
-                            <h4>Platform Engineering</h4>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-sync-alt"></i></div>
-                            <h4>MLOps & DataOps</h4>
-                        </div>
+                <div class="skill-cat">
+                    <h3>Core Competencies</h3>
+                    <div class="skills-icons">
+                        <div class="skill-item"><i class="fas fa-brain"></i> Generative AI Engineering</div>
+                        <div class="skill-item"><i class="fas fa-project-diagram"></i> RAG Applications</div>
+                        <div class="skill-item"><i class="fas fa-cogs"></i> AI Data Engineering</div>
+                        <div class="skill-item"><i class="fas fa-server"></i> Platform Engineering</div>
+                        <div class="skill-item"><i class="fas fa-sync-alt"></i> MLOps & DataOps</div>
                     </div>
                 </div>
-
-                <div class="skill-category">
+                <div class="skill-cat">
                     <h3>Technologies & Tools</h3>
                     <div class="skills-tags">
-                        <span class="skill-tag"><i class="fas fa-sparkles"></i> Vector Search & RAG</span>
+                        <span class="skill-tag"><i class="fas fa-search"></i> Vector Search & RAG</span>
                         <span class="skill-tag"><i class="fas fa-cube"></i> MLflow & Model Serving</span>
                         <span class="skill-tag"><i class="fas fa-cubes"></i> Databricks & Spark</span>
                         <span class="skill-tag"><i class="fab fa-microsoft"></i> Azure (ADF, Synapse)</span>
@@ -544,10 +1757,8 @@
                         <span class="skill-tag"><i class="fab fa-docker"></i> Docker & Terraform</span>
                     </div>
                 </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Domain Knowledge (Finance)</h3>
+                <div class="skill-cat">
+                    <h3>Domain Knowledge — Finance</h3>
                     <div class="skills-tags">
                         <span class="skill-tag"><i class="fas fa-chart-line"></i> Corporate Finance</span>
                         <span class="skill-tag"><i class="fas fa-shield-alt"></i> Financial Risk Mgmt</span>
@@ -556,135 +1767,294 @@
                         <span class="skill-tag"><i class="fas fa-university"></i> Banking & Insurance</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="label">Credentials</span>
+                <h2>Certifications & Learning</h2>
+                <p style="font-size:14px;color:var(--muted);margin-top:10px">Formal certifications and ongoing hands-on
+                    achievements.</p>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-col">
+                    <h3>Official Certifications</h3>
+                    <div class="cert-card featured">
+                        <div class="cert-icon"><i class="fas fa-robot"></i></div>
+                        <div class="cert-details">
+                            <h4>Databricks Certified Generative AI Engineer Associate</h4>
+                            <div class="cert-date">Issued Feb 17, 2026 · Expires Feb 17, 2028</div>
+                            <p>Design and implement LLM-enabled solutions, RAG applications, and LLM chains using
+                                Databricks Vector Search, Model Serving, MLflow, and Unity Catalog.</p>
+                            <div class="cert-tags">
+                                <span class="cert-tag">GenAI</span>
+                                <span class="cert-tag">RAG</span>
+                                <span class="cert-tag">Vector Search</span>
+                                <span class="cert-tag">MLflow</span>
+                                <span class="cert-tag">LLM Chains</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                        <div class="cert-details">
+                            <h4>Databricks Certified Data Engineer Associate</h4>
+                            <div class="cert-date">Issued October 2022</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-col">
+                    <h3>Microsoft Learn Modules</h3>
+                    <div class="modules-list" id="modules-list"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="section-divider"></div>
+    <div class="divider"></div>
 
-    <!-- Credentials Section -->
-    <section id="certifications" class="credentials-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Certifications & Continuous Learning</h2>
-                <div class="underline"></div>
-                <p class="recruiter-note">My formal certifications and ongoing hands-on module achievements.</p>
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="label">Get in touch</span>
+                <h2>Contact</h2>
             </div>
-            
-            <div class="credentials-grid">
-                <!-- Left Column: Certs -->
-                <div class="certs-column">
-                    <h3 style="margin-bottom: 24px; font-size: 1.4rem;">Official Certifications</h3>
-                    <div class="certifications-content" style="display: flex; flex-direction: column; gap: 24px;">
-                        <div class="certification-card" style="border: 2px solid var(--primary-color); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
-                            <div class="certification-logo">
-                                <i class="fas fa-robot" style="color: var(--primary-color);"></i>
-                            </div>
-                            <div class="certification-details">
-                                <h3>Databricks Certified Generative AI Engineer Associate</h3>
-                                <p style="font-weight: 500; margin-bottom: 8px;">Issued February 17, 2026 • Expires February 17, 2028</p>
-                                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Design and implement LLM-enabled solutions, RAG applications, and LLM chains using Databricks Vector Search, Model Serving, MLflow, and Unity Catalog.</p>
-                                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                    <span class="cert-tag">GenAI</span>
-                                    <span class="cert-tag">RAG</span>
-                                    <span class="cert-tag">Vector Search</span>
-                                    <span class="cert-tag">MLflow</span>
-                                    <span class="cert-tag">LLM Chains</span>
-                                </div>
-                            </div>
+            <div class="contact-grid">
+                <div class="contact-items">
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Oulu, Finland</span></div>
+                    <div class="contact-item"><i class="fab fa-linkedin"></i><a
+                            href="https://linkedin.com/in/panu-alaluusua"
+                            target="_blank">linkedin.com/in/panu-alaluusua</a></div>
+                    <div class="contact-item"><i class="fas fa-globe"></i><a href="https://panualaluusua.fi"
+                            target="_blank">panualaluusua.fi</a></div>
+                </div>
+                <div>
+                    <form id="contactForm" action="https://formspree.io/f/xdkgdzvw" method="POST">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" required placeholder="Your name">
                         </div>
-
-                        <div class="certification-card">
-                            <div class="certification-logo">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <div class="certification-details">
-                                <h3>Databricks Certified Data Engineer Associate</h3>
-                                <p>Issued October 2022</p>
-                            </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" required placeholder="you@example.com">
                         </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: Modules -->
-                <div class="modules-column">
-                    <h3 style="margin-bottom: 24px; font-size: 1.4rem;">Microsoft Learn Modules</h3>
-                    <div id="modules-list" class="modules-list">
-                        <!-- Modules will be loaded here dynamically -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get In Touch</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="contact-content">
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Oulu, Finland</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <a href="https://linkedin.com/in/panu-alaluusua"
-                            target="_blank">linkedin.com/in/panu-alaluusua</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-globe"></i>
-                        <a href="https://panualaluusua.fi/" target="_blank">panualaluusua.fi</a>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm" action="https://formspree.io/f/xdkgdzvw" method="POST"
-                        style="max-width: 430px; margin: 0 auto; background: #151e27; padding: 32px 24px 24px 24px; border-radius: 28px;">
-                        <label for="name"
-                            style="color: #fff; font-size: 1.15em; font-weight: 400; margin-bottom: 6px; display: block;">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Name" required
-                            style="width: 100%; background: #292d3e; color: #e8eaf6; border: none; border-radius: 8px; padding: 14px 12px; margin-bottom: 18px; font-size: 1.08em;">
-
-                        <label for="email"
-                            style="color: #fff; font-size: 1.15em; font-weight: 400; margin-bottom: 6px; display: block;">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Email" required
-                            style="width: 100%; background: #292d3e; color: #e8eaf6; border: none; border-radius: 8px; padding: 14px 12px; margin-bottom: 18px; font-size: 1.08em;">
-
-                        <label for="message"
-                            style="color: #fff; font-size: 1.15em; font-weight: 400; margin-bottom: 6px; display: block;">Message</label>
-                        <textarea id="message" name="message" placeholder="Message..." required rows="4"
-                            style="width: 100%; background: #292d3e; color: #e8eaf6; border: none; border-radius: 8px; padding: 14px 12px; margin-bottom: 18px; font-size: 1.08em;"></textarea>
-
-                        <button type="submit"
-                            style="width: 140px; background: none; border: 2px solid #7ca9d6; color: #b9cbe7; font-size: 1.13em; font-weight: 600; border-radius: 8px; padding: 10px 0; cursor: pointer; margin-top: 8px; transition: background 0.2s, color 0.2s;">Submit</button>
-                        <div id="contact-success" style="margin-top: 14px; color: #4eb3f7; font-weight: 500;"></div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea name="message" required placeholder="What's on your mind?"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width:100%">Send Message</button>
+                        <div id="contact-success"></div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <script src="script.js"></script>
-    <script src="github-activity.js"></script>
-    <script src="blog-posts.js"></script>
-    <script src="modules.js"></script>
-
     <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Panu Alaluusua. All rights reserved.</p>
-            <div class="footer-social-links">
-                <a href="https://www.linkedin.com/in/panu-alaluusua/" target="_blank"><i
-                        class="fab fa-linkedin"></i></a>
+        <div class="footer-inner">
+            <p>© 2026 Panu Alaluusua</p>
+            <div class="footer-social">
+                <a href="https://linkedin.com/in/panu-alaluusua" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/panualaluusua" target="_blank"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </footer>
+
+    <!-- TWEAKS PANEL -->
+    <div id="tweaks-panel">
+        <h4>Tweaks</h4>
+        <div class="tweak-row">
+            <label>Accent color</label>
+            <input type="color" id="tw-accent" value="#c9913a">
+        </div>
+        <div class="tweak-row">
+            <label>Section spacing</label>
+            <select id="tw-spacing">
+                <option value="80px">Compact</option>
+                <option value="120px" selected>Default</option>
+                <option value="160px">Airy</option>
+            </select>
+        </div>
+        <div class="tweak-row">
+            <label>Font weight feel</label>
+            <select id="tw-weight">
+                <option value="300" selected>Light</option>
+                <option value="400">Regular</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        // ── Scroll progress ──
+        window.addEventListener('scroll', () => {
+            const pct = (window.scrollY / (document.body.offsetHeight - window.innerHeight)) * 100;
+            document.getElementById('scroll-bar').style.width = pct + '%';
+        });
+
+        // ── Nav active on scroll ──
+        const sections = document.querySelectorAll('section[id]');
+        const navAs = document.querySelectorAll('.nav-links a');
+        window.addEventListener('scroll', () => {
+            let cur = '';
+            sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+            navAs.forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+            });
+        }, { passive: true });
+
+        // ── Smooth scroll ──
+        function scrollTo(id) {
+            const el = document.querySelector(id);
+            if (el) window.scrollBy({ top: el.getBoundingClientRect().top - 70, behavior: 'smooth' });
+        }
+        navAs.forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                scrollTo(a.getAttribute('href'));
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+
+        // ── Hamburger ──
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        // ── Project filter ──
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const f = btn.dataset.filter;
+                document.querySelectorAll('.project-card').forEach(c => {
+                    c.style.display = (f === 'all' || c.dataset.category.includes(f)) ? '' : 'none';
+                });
+            });
+        });
+
+        // ── Contact form ──
+        const cf = document.getElementById('contactForm');
+        if (cf) cf.addEventListener('submit', async e => {
+            e.preventDefault();
+            const sd = document.getElementById('contact-success');
+            sd.textContent = '';
+            try {
+                const r = await fetch(cf.action, { method: 'POST', body: new FormData(cf), headers: { Accept: 'application/json' } });
+                sd.textContent = r.ok ? 'Thank you! I will get back to you soon.' : 'Something went wrong. Please try again.';
+                if (r.ok) cf.reset();
+            } catch { sd.textContent = 'Something went wrong. Please try again.'; }
+        });
+
+        // ── Blog posts ──
+        (async () => {
+            const grid = document.getElementById('blog-grid');
+            if (!grid) return;
+            try {
+                const res = await fetch(`https://dev.to/api/articles?username=panualaluusua&t=${Date.now()}`);
+                if (!res.ok) throw new Error();
+                const articles = (await res.json()).slice(0, 3);
+                if (!articles.length) { grid.innerHTML = '<p style="color:var(--muted)">No articles yet.</p>'; return; }
+                grid.innerHTML = articles.map(a => {
+                    const date = new Date(a.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+                    const img = a.cover_image
+                        ? `<div class="blog-cover" style="background-image:url('${a.cover_image}')"></div>`
+                        : `<div class="blog-cover placeholder"><i class="fas fa-pen-nib"></i></div>`;
+                    return `<article class="blog-card">
+        <a href="${a.url}" target="_blank">
+          ${img}
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="far fa-calendar-alt"></i> ${date}</span>
+              <span><i class="far fa-clock"></i> ${a.reading_time_minutes} min</span>
+            </div>
+            <h3>${a.title}</h3>
+            <p>${a.description || ''}</p>
+            <div class="blog-tags">${a.tag_list.map(t => `<span class="blog-tag">#${t}</span>`).join(' ')}</div>
+            <div class="blog-footer">
+              <span class="read">Read Article <i class="fas fa-arrow-right"></i></span>
+              <span class="reactions"><i class="far fa-heart"></i> ${a.public_reactions_count}</span>
+            </div>
+          </div>
+        </a>
+      </article>`;
+                }).join('');
+            } catch {
+                grid.innerHTML = '<p style="color:var(--muted)">Could not load articles. Visit <a href="https://dev.to/panualaluusua" target="_blank" style="color:var(--accent)">Dev.to</a>.</p>';
+            }
+        })();
+
+        // ── Modules (stub data if modules.js not present) ──
+        const modulesData = window.modulesData || [
+            { title: "Introduction to Azure AI", tags: ["Azure", "AI"], icon: "fa-robot", link: "#" },
+            { title: "Build RAG solutions with Azure AI", tags: ["RAG", "GenAI"], icon: "fa-brain", link: "#" },
+            { title: "Implement knowledge mining with AI Search", tags: ["Search", "Azure"], icon: "fa-search", link: "#" },
+        ];
+        const ml = document.getElementById('modules-list');
+        if (ml) modulesData.forEach(m => {
+            ml.innerHTML += `<div class="module-item">
+    <div class="module-info">
+      <i class="fas ${m.icon}"></i>
+      <div class="module-text">
+        <h4>${m.title}</h4>
+        <div class="module-tags-list">${m.tags.map(t => `<span>${t}</span>`).join('')}</div>
+      </div>
+    </div>
+    <a href="${m.link}" target="_blank" class="module-item-link"><i class="fas fa-external-link-alt"></i></a>
+  </div>`;
+        });
+
+        // ── Tweaks ──
+        const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+            "accentColor": "#c9913a",
+            "sectionSpacing": "120px",
+            "fontWeight": "300"
+        }/*EDITMODE-END*/;
+
+        function applyTweaks(t) {
+            const r = document.documentElement.style;
+            // Convert hex to a CSS color for accent
+            r.setProperty('--accent', t.accentColor || TWEAK_DEFAULTS.accentColor);
+            r.setProperty('--section', t.sectionSpacing || TWEAK_DEFAULTS.sectionSpacing);
+            document.querySelectorAll('.hero-sub, .exp-card li, .proj-challenge, .passion-card p')
+                .forEach(el => el.style.fontWeight = t.fontWeight || TWEAK_DEFAULTS.fontWeight);
+        }
+
+        applyTweaks(TWEAK_DEFAULTS);
+
+        window.addEventListener('message', e => {
+            if (e.data?.type === '__activate_edit_mode') {
+                document.getElementById('tweaks-panel').style.display = 'block';
+            } else if (e.data?.type === '__deactivate_edit_mode') {
+                document.getElementById('tweaks-panel').style.display = 'none';
+            }
+        });
+        window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+        const twAccent = document.getElementById('tw-accent');
+        const twSpacing = document.getElementById('tw-spacing');
+        const twWeight = document.getElementById('tw-weight');
+
+        function onTweakChange() {
+            const edits = {
+                accentColor: twAccent.value,
+                sectionSpacing: twSpacing.value,
+                fontWeight: twWeight.value,
+            };
+            applyTweaks(edits);
+            window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
+        }
+
+        twAccent.addEventListener('input', onTweakChange);
+        twSpacing.addEventListener('change', onTweakChange);
+        twWeight.addEventListener('change', onTweakChange);
+    </script>
 </body>
 
 </html>
