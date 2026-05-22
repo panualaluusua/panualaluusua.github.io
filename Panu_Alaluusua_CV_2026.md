@@ -100,6 +100,7 @@ Datatieteen ja edistyneen analytiikan tutkija keskittyen korkeakoulutuksen metri
 
 ## **Sertifikaatit**
 
+*   **Microsoft Certified: Machine Learning Operations Engineer Associate** (Toukokuu 2026)
 *   **Databricks Certified Generative AI Engineer Associate** (Helmikuu 2026)
     *   *Osaaminen:* Generative AI Solutions, RAG Applications, Vector Search, Model Serving, MLflow, Unity Catalog, LLM Chains.
 *   **Databricks Certified Data Engineer Associate** (Lokakuu 2022, vanhentunut 2024)

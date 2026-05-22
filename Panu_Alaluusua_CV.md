@@ -102,6 +102,7 @@ Data science and advanced analytics researcher focused on higher education metri
 
 ## **Certifications**
 
+*   **Microsoft Certified: Machine Learning Operations Engineer Associate** (May 2026)
 *   **Databricks Certified Generative AI Engineer Associate** (February 2026)
     *   *Expertise:* Generative AI Solutions, RAG Applications, Vector Search, Model Serving, MLflow, Unity Catalog, LLM Chains.
 *   **Databricks Certified Data Engineer Associate** (October 2022, expired 2024)

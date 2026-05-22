@@ -71,6 +71,23 @@ cert_section_new = """<!-- Credentials Section -->
                     <div class="certifications-content" style="display: flex; flex-direction: column; gap: 24px;">
                         <div class="certification-card" style="border: 2px solid var(--primary-color); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
                             <div class="certification-logo">
+                                <i class="fab fa-microsoft" style="color: var(--primary-color);"></i>
+                            </div>
+                            <div class="certification-details">
+                                <h3>Microsoft Certified: Machine Learning Operations Engineer Associate</h3>
+                                <p style="font-weight: 500; margin-bottom: 8px;">Issued May 20, 2026 • Expires May 21, 2027</p>
+                                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Design and implement an MLOps and GenAIOps infrastructure, manage machine learning model lifecycles, implement generative AI quality assurance and observability, and optimize generative AI systems and model performance.</p>
+                                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                    <span class="cert-tag">MLOps</span>
+                                    <span class="cert-tag">GenAIOps</span>
+                                    <span class="cert-tag">Model Lifecycle</span>
+                                    <span class="cert-tag">Observability</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certification-card" style="border: 2px solid var(--primary-color); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                            <div class="certification-logo">
                                 <i class="fas fa-robot" style="color: var(--primary-color);"></i>
                             </div>
                             <div class="certification-details">
