@@ -1323,7 +1323,7 @@
                 <a href="#home">Home</a>
                 <a href="#work-experience">Experience</a>
                 <a href="#projects">Projects</a>
-                <a href="#passion-projects">Passion</a>
+                <a href="#passion-projects">Selected Systems</a>
                 <a href="#blog">Writing</a>
                 <a href="#skills">Skills</a>
                 <a href="#certifications">Certs</a>
@@ -1616,12 +1616,46 @@
     <section id="passion-projects">
         <div class="wrap">
             <div class="section-head">
-                <span class="label">Personal</span>
-                <h2>Architecture Sandboxes & Personal Projects</h2>
-                <p style="font-size:14px;color:var(--muted);margin-top:10px;max-width:540px">Beyond client work, I build
-                    things for fun — personal sandboxes for exploring new tech, architectures, and ideas.</p>
+                <span class="label">Selected systems</span>
+                <h2>AI & Data Engineering Portfolio</h2>
+                <p style="font-size:14px;color:var(--muted);margin-top:10px;max-width:620px">A focused selection of
+                    implemented systems. Each case highlights a concrete engineering problem, the design decisions
+                    behind it, and evidence from the working implementation.</p>
             </div>
             <div class="passion-grid">
+                <div class="passion-card" style="border-color: var(--accent); background: oklch(70% 0.14 58 / .05);">
+                    <span class="passion-tag" style="color: var(--accent);"><i class="fas fa-star" style="margin-right:4px"></i>Hero case · Agent memory</span>
+                    <h3>ContextVault MemoryAgent</h3>
+                    <p>Typed long-term memory for AI agents with temporal validity, contradiction and supersession handling, governed writes, memory packs, receipts, and JSONL traces. Implemented with DuckDB, provider adapters, a CLI, an authenticated HTTP API, Docker, and evaluations.</p>
+                </div>
+                <div class="passion-card" style="border-color: var(--accent); background: oklch(70% 0.14 58 / .05);">
+                    <span class="passion-tag" style="color: var(--accent);"><i class="fas fa-star" style="margin-right:4px"></i>Hero case · Semantic ETL</span>
+                    <h3>Information Digest Agentic</h3>
+                    <p>An auditable Raw → Silver → Gold pipeline for RSS, YouTube, and GitHub sources. Prefect coordinates deterministic ingestion and validation with concurrent agent analysis, source routing, synthesis, and delivery to a personal knowledge system.</p>
+                </div>
+                <div class="passion-card" style="border-color: var(--accent); background: oklch(70% 0.14 58 / .05);">
+                    <span class="passion-tag" style="color: var(--accent);"><i class="fas fa-star" style="margin-right:4px"></i>Hero candidate · GenAIOps</span>
+                    <h3>Azure GenAIOps Information Digest</h3>
+                    <p>An enterprise operations variant using Azure AI Foundry agents, Azure AI Search, evaluators, OpenTelemetry, Bicep infrastructure, and GitHub Actions quality gates. The implementation is being prepared as a clean standalone case.</p>
+                </div>
+                <div class="passion-card">
+                    <span class="passion-tag">Support case · Data engineering</span>
+                    <h3>Cycling Events Data Platform</h3>
+                    <p>Nine source adapters feed a shared event schema with source precedence, entity resolution, deduplication, geocoding, administrative corrections, and a public map application.</p>
+                    <div class="passion-links"><a class="passion-link" href="https://pyorailytapahtumat2025.streamlit.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live App</a><a class="passion-link" href="https://github.com/panualaluusua/pyorailytapahtumat" target="_blank"><i class="fab fa-github"></i> Repository</a></div>
+                </div>
+                <div class="passion-card">
+                    <span class="passion-tag">Support case · Media automation</span>
+                    <h3>Video Automation Pipeline</h3>
+                    <p>A typed production pipeline for scripts, audio, visuals, overlays, and final video assembly. Explicit draft, QA, approval, and final states keep human review inside the workflow.</p>
+                </div>
+                <div class="passion-card">
+                    <span class="passion-tag">Support case · MCP & Azure agents</span>
+                    <h3>Information Digest Azure Hackathon</h3>
+                    <p>A published hackathon implementation with Microsoft Agent Framework agents, typed Silver data, analyzer and synthesizer stages, Teams delivery, and three FastMCP services for blog, GitHub, and YouTube sources.</p>
+                    <div class="passion-links"><a class="passion-link" href="https://github.com/panualaluusua/information-digest-azure-hachathon" target="_blank"><i class="fab fa-github"></i> Repository</a></div>
+                </div>
+                <div style="display:none">
                 <div class="passion-card" style="border-color: var(--accent); background: oklch(70% 0.14 58 / .05);">
                     <span class="passion-tag" style="color: var(--accent);"><i class="fas fa-star" style="margin-right: 4px;"></i>AI Orchestration / Agentic workflows</span>
                     <h3>Local AI Agent Orchestrator</h3>
@@ -1740,6 +1774,7 @@
                     <span class="passion-tag">Web Scraping Agent</span>
                     <h3>Equipment & Voucher Watchers</h3>
                     <p>Automated trackers for Verkkokauppa cycling equipment outlet availability and Microsoft Cloud Skills Challenge vouchers, alerting directly via Cowork app.</p>
+                </div>
                 </div>
                 <div class="passion-card dashed">
                     <h3>More on GitHub</h3>
