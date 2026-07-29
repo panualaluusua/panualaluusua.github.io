@@ -1,5 +1,21 @@
 # Portfolio Parannuslista - Priorisoitu
 
+## Portfolio project convention
+
+Strategically important public projects should use the **B + C pattern**:
+
+- **B:** a larger featured treatment on the homepage;
+- **C:** a dedicated case study page under `projects/`.
+
+ContextVault is the first implemented reference:
+
+- `index.html` featured public system section;
+- `projects/contextvault.html` case study;
+- `assets/contextvault-architecture.svg` architecture asset.
+
+Use compact homepage cards for smaller supporting projects. See
+`docs/portfolio-project-pattern.md`.
+
 Viimeksi päivitetty: 2026-02-19
 
 ## ✅ TEHTY

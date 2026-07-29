@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 640" role="img" aria-labelledby="title desc">
+  <title id="title">Information Digest Agentic architecture</title>
+  <desc id="desc">Sources flow into raw ingest, Silver validation, Gold synthesis, lenses, PKM delivery and infographic output, with agent runtime and audits controlling AI work.</desc>
+  <defs>
+    <style>
+      .paper { fill: #fdfaf0; }
+      .ink { fill: #2c2a26; }
+      .soft { fill: rgba(44,42,38,.68); }
+      .line { stroke: #5b6c8c; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .box { fill: #faf8f1; stroke: #2c2a26; stroke-width: 2; rx: 8; }
+      .accent { fill: #5b6c8c; }
+      .muted { fill: #efe7d3; stroke: #5b6c8c; stroke-width: 1.6; rx: 8; }
+      text { font-family: Inter, Arial, sans-serif; }
+      .label { font-size: 20px; font-weight: 700; }
+      .small { font-size: 14px; }
+      .tiny { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="accent"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="640" class="paper"/>
+
+  <text x="56" y="54" class="tiny soft">Auditable semantic ETL pipeline</text>
+  <text x="56" y="86" class="label ink">Information Digest Agentic</text>
+
+  <rect x="54" y="126" width="158" height="86" class="box"/>
+  <text x="78" y="158" class="label ink">Sources</text>
+  <text x="78" y="184" class="small soft">RSS, YouTube, GitHub</text>
+
+  <rect x="272" y="126" width="158" height="86" class="box"/>
+  <text x="298" y="158" class="label ink">Raw</text>
+  <text x="298" y="184" class="small soft">Markdown ingest</text>
+
+  <rect x="490" y="126" width="158" height="86" class="box"/>
+  <text x="516" y="158" class="label ink">Silver</text>
+  <text x="516" y="184" class="small soft">Pydantic JSON</text>
+
+  <rect x="708" y="126" width="158" height="86" class="box"/>
+  <text x="734" y="158" class="label ink">Gold</text>
+  <text x="734" y="184" class="small soft">Weekly synthesis</text>
+
+  <path d="M212 169 H264" class="line" marker-end="url(#arrow)"/>
+  <path d="M430 169 H482" class="line" marker-end="url(#arrow)"/>
+  <path d="M648 169 H700" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="490" y="280" width="158" height="86" class="box"/>
+  <text x="516" y="312" class="label ink">Audit</text>
+  <text x="516" y="338" class="small soft">source grounding gate</text>
+
+  <rect x="708" y="280" width="158" height="86" class="box"/>
+  <text x="734" y="312" class="label ink">Lenses</text>
+  <text x="734" y="338" class="small soft">6 specialist reports</text>
+
+  <path d="M787 212 V272" class="line" marker-end="url(#arrow)"/>
+  <path d="M708 323 H656" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="168" y="430" width="178" height="90" class="box"/>
+  <text x="194" y="464" class="label ink">PKM delivery</text>
+  <text x="194" y="490" class="small soft">deterministic ingest plan</text>
+
+  <rect x="410" y="430" width="178" height="90" class="box"/>
+  <text x="436" y="464" class="label ink">Infographic</text>
+  <text x="436" y="490" class="small soft">curate, render, validate</text>
+
+  <rect x="652" y="430" width="178" height="90" class="box"/>
+  <text x="678" y="464" class="label ink">Reports</text>
+  <text x="678" y="490" class="small soft">digest and evidence packs</text>
+
+  <path d="M569 366 C560 400 415 404 316 430" class="line" marker-end="url(#arrow)"/>
+  <path d="M787 366 C766 414 620 420 588 456" class="line" marker-end="url(#arrow)"/>
+  <path d="M787 366 V422" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="54" y="280" width="316" height="86" class="muted"/>
+  <text x="80" y="311" class="label ink">Agent Runtime</text>
+  <text x="80" y="337" class="small soft">task policy, CLI provider routing, concurrency slots</text>
+
+  <path d="M370 323 H482" class="line" marker-end="url(#arrow)"/>
+  <path d="M370 323 C430 250 500 232 569 212" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="54" y="562" width="812" height="34" class="muted"/>
+  <text x="80" y="584" class="small soft">Run evidence: fetch reports, pipeline health, source health, agent audit JSONL, offline tests.</text>
+</svg>

@@ -1,0 +1,42 @@
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+.vscode/
+.idea/
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+env/
+
+# Dependency and build artifacts
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+.vite/
+.next/
+coverage/
+
+# Python helper artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Logs and local scratch output
+*.log
+tmp/
+.tmp/
+
+# Raw local media captures. Curated site assets should stay under assets/.
+*.mp4
+*.mov
+*.webm

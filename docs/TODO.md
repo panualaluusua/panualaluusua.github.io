@@ -1,5 +1,22 @@
 # Tehtävälista Portfolion Viimeistelyyn
 
+## Nykyinen portfolio-projektien linjaus
+
+Strategisesti tärkeät julkiset portfolioprojektit nostetaan jatkossa **B + C
+-mallilla**:
+
+- **B:** isompi featured-nosto etusivulla;
+- **C:** oma case study -sivu `projects/`-hakemistossa.
+
+ContextVault on ensimmäinen toteutettu esimerkki:
+
+- `index.html` featured public system -nosto;
+- `projects/contextvault.html` case study;
+- `assets/contextvault-architecture.svg` arkkitehtuurikuva.
+
+Pienemmät ja tukevat projektit pidetään edelleen kompakteina kortteina. Katso
+`docs/portfolio-project-pattern.md`.
+
 Nämä tehtävät vaativat sinun panostasi portfolion viimeistelemiseksi. Ne on järjestetty prioriteetin mukaan.
 
 ## Prioriteetti 1: Kriittiset Tehtävät
@@ -63,4 +80,3 @@ Nämä tehtävät vaativat sinun panostasi portfolion viimeistelemiseksi. Ne on 
     *   **Tehtävä:** Kun kaikki muutokset on tehty, testaa portfolion toimivuus ja ulkoasu yleisimmillä selaimilla (Chrome, Firefox, Safari, Edge) ja eri näyttökooilla (tietokone, tabletti, puhelin).
 
 Muista päivittää tämä TODO-lista sitä mukaa kun saat tehtäviä valmiiksi!
-
