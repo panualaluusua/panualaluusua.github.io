@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ContextVault case study: governed memory for long-running multi-agent software work.">
+  <title>ContextVault — Panu Alaluusua</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Patrick+Hand&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../favicon.ico">
+  <script src="https://unpkg.com/roughjs@4.6.6/bundled/rough.js" defer></script>
+  <style>
+    :root {
+      --paper: #faf8f1;
+      --paper-warm: #efe7d3;
+      --card: #fdfaf0;
+      --rule: rgba(60,70,90,0.09);
+      --ink: #2c2a26;
+      --ink-soft: rgba(44,42,38,0.55);
+      --ink-body: rgba(44,42,38,0.84);
+      --accent: #5b6c8c;
+      --accent-wash: rgba(91,108,140,0.07);
+      --font-hand: 'Caveat', cursive;
+      --font-body: 'Patrick Hand', cursive;
+      --font-ui: 'Inter', system-ui, sans-serif;
+      --gap: clamp(16px, 3vw, 28px);
+      --maxw: 900px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background-color: var(--paper);
+      background-image: repeating-linear-gradient(transparent, transparent 26px, var(--rule) 27px);
+      background-size: 100% 27px;
+      color: var(--ink);
+      font-family: var(--font-ui);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    p { margin: 0; }
+    .wrap { width: min(var(--maxw), calc(100% - 40px)); margin: 0 auto; }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--ink-soft);
+    }
+    h1, h2, h3 { margin: 0; color: var(--ink); }
+    h1 { font-family: var(--font-hand); font-weight: 700; font-size: clamp(44px, 8vw, 74px); line-height: .95; }
+    h2, h3 { font-family: var(--font-ui); font-weight: 700; letter-spacing: -0.01em; }
+    h2 { font-size: clamp(25px, 4vw, 34px); line-height: 1.15; }
+    h3 { font-size: 18px; line-height: 1.3; }
+
+    [data-rough] { position: relative; }
+    svg.rough-overlay { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+    svg.rough-overlay .rr-hover { opacity: 0; transition: opacity .15s ease; }
+    .rough-card, .button { transition: transform .15s ease; }
+    .rough-card:hover svg.rough-overlay .rr-hover,
+    .button:hover svg.rough-overlay .rr-hover { opacity: 1; }
+    .rough-card:hover svg.rough-overlay .rr-default,
+    .button:hover svg.rough-overlay .rr-default { opacity: 0; }
+    @media (prefers-reduced-motion: no-preference) {
+      .rough-card:hover, .button:hover { transform: translateY(-2px); }
+    }
+
+    header { padding: 28px 0 8px; }
+    nav.wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .brand { font-family: var(--font-hand); font-weight: 700; font-size: 26px; }
+    .nav-links { display: flex; align-items: center; gap: 22px; font-family: var(--font-ui); font-weight: 500; font-size: 15px; color: var(--ink-body); }
+    .nav-links a { padding-bottom: 2px; border-bottom: 2px solid transparent; }
+    .nav-links a:hover { color: var(--ink); border-color: var(--accent); }
+
+    section { padding: 64px 0; }
+    .hero { padding: 56px 0 54px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(260px, .95fr); gap: clamp(28px, 5vw, 56px); align-items: start; }
+    .hero h1 { margin: 12px 0 20px; }
+    .lead { color: var(--ink-body); font-size: 18px; max-width: 620px; line-height: 1.55; }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 20px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--ink);
+      background: transparent;
+    }
+    .button:hover { background: var(--accent-wash); }
+    .button.primary { color: var(--accent); font-weight: 600; }
+
+    .architecture img { display: block; width: 100%; height: auto; }
+    .caption { margin-top: 10px; font-family: var(--font-body); color: var(--ink-soft); font-size: 14px; }
+    .section-head { margin-bottom: 28px; }
+    .section-head .eyebrow { margin-bottom: 8px; }
+    .section-head p { color: var(--ink-body); font-size: 16px; max-width: 680px; margin-top: 12px; }
+
+    .rough-card { padding: 22px; display: flex; flex-direction: column; gap: 12px; height: 100%; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--gap); }
+    .wide-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--gap); align-items: start; }
+    .card-label { font-family: var(--font-body); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); }
+    .rough-card p, .body-copy p { color: var(--ink-body); font-size: 15px; line-height: 1.55; }
+    .body-copy { display: grid; gap: 16px; }
+    .body-copy strong { color: var(--ink); }
+    .bullet-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .bullet-list li { color: var(--ink-body); font-size: 15px; padding-top: 10px; border-top: 1px solid var(--rule); }
+    .evidence { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .evidence li { font-family: var(--font-body); color: var(--ink-soft); font-size: 16px; }
+    .tier-list { display: grid; gap: 12px; }
+    .tier { display: grid; grid-template-columns: 80px 1fr; gap: 16px; padding-top: 12px; border-top: 1px solid var(--rule); }
+    .tier:first-child { border-top: 0; padding-top: 0; }
+    .tier-number { font-family: var(--font-body); color: var(--accent); font-size: 15px; }
+    .tier p { color: var(--ink-body); font-size: 15px; line-height: 1.5; }
+    .tier strong { color: var(--ink); }
+    .links-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
+    .links-row a { font-family: var(--font-body); color: var(--accent); font-size: 16px; border-bottom: 2px solid var(--accent); padding-bottom: 1px; }
+
+    footer { padding: 28px 0 40px; }
+    .footer-rule { border: none; border-top: 1px solid var(--rule); margin: 0 auto 24px; width: min(var(--maxw), calc(100% - 40px)); }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: var(--font-body); font-size: 14px; color: var(--ink-soft); }
+
+    @media (max-width: 720px) {
+      section { padding: 48px 0; }
+      .hero { padding: 34px 0 42px; }
+      .hero-grid, .wide-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 16px; font-size: 14px; }
+      .tier { grid-template-columns: 1fr; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">Panu Alaluusua</a>
+      <div class="nav-links">
+        <a href="../index.html#work">Public work</a>
+        <a href="https://github.com/panualaluusua/contextvault-memoryagent" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Case study · ContextVault v0.1.0</div>
+          <h1>Governed memory for agentic software work.</h1>
+          <p class="lead">ContextVault is a local memory prototype for long-running multi-agent coding work. It keeps architectural decisions, preferences and warnings current across sessions, with citations and receipts for the context an agent used.</p>
+          <div class="actions">
+            <a class="button primary" data-rough="box" data-rough-width="1.4" data-rough-roughness="0.7" data-rough-bowing="0.4" href="https://github.com/panualaluusua/contextvault-memoryagent" target="_blank" rel="noreferrer">Repository ↗</a>
+            <a class="button" data-rough="box" data-rough-width="1.4" data-rough-roughness="0.7" data-rough-bowing="0.4" href="https://github.com/panualaluusua/contextvault-memoryagent/releases/tag/v0.1.0" target="_blank" rel="noreferrer">v0.1.0 release ↗</a>
+          </div>
+        </div>
+        <div class="architecture">
+          <img src="../assets/contextvault-architecture.svg" alt="ContextVault architecture diagram">
+          <p class="caption">Typed records and governed writes flow through a local memory service into budgeted memory packs for CLI, HTTP and MCP adapters.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Problem</div>
+          <h2>Agents need several kinds of context, not one generic memory.</h2>
+          <p>In long-running software work, the failure mode is not only that an agent cannot find information. It can also find old information and treat it as current.</p>
+        </div>
+        <div class="grid">
+          <article class="rough-card" data-rough="box">
+            <div class="card-label">Session state</div>
+            <h3>Where is this task right now?</h3>
+            <p>Useful for continuing one workflow across prompts or handoffs.</p>
+          </article>
+          <article class="rough-card" data-rough="box">
+            <div class="card-label">Repo context</div>
+            <h3>How does this codebase work?</h3>
+            <p>AGENTS.md, README files and generated repo wikis help the agent orient inside one repository.</p>
+          </article>
+          <article class="rough-card" data-rough="box">
+            <div class="card-label">Cross-repo context</div>
+            <h3>Which repositories matter?</h3>
+            <p>A catalog tells the agent what related projects, standards and source-of-truth files to inspect.</p>
+          </article>
+          <article class="rough-card" data-rough="box">
+            <div class="card-label">Governed memory</div>
+            <h3>What is currently valid?</h3>
+            <p>This is the ContextVault layer: current decisions, stale warnings, superseded records and auditable context use.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap wide-grid">
+        <div class="section-head">
+          <div class="eyebrow">Design choice</div>
+          <h2>The problem changes when many agents work across many sessions.</h2>
+        </div>
+        <div class="body-copy">
+          <p>A Markdown note or ADR log is often enough for a small project. A repo wiki helps an agent understand one codebase. A catalog helps with cross-repo navigation.</p>
+          <p><strong>ContextVault sits between those lightweight patterns and an enterprise context platform.</strong> It is for work where architectural alignment matters, but a full internal developer portal would be too heavy.</p>
+          <p>The prototype asks a narrower question: can a local memory layer tell an agent which decision is current, which record is stale, what superseded what, and why a piece of context was selected?</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Implementation</div>
+          <h2>What the prototype includes.</h2>
+        </div>
+        <div class="grid">
+          <article class="rough-card" data-rough="box">
+            <div class="card-label">Memory model</div>
+            <ul class="bullet-list">
+              <li>Typed Markdown records for facts, preferences, decisions, source notes and warnings.</li>
+              <li>Temporal metadata: recorded_at, valid_from and valid_until.</li>
+              <li>Supersedes and contradicts relations for deterministic truth resolution.</li>
+            </ul>
+          </article>
+          <article class="rough-card" data-rough="box">
+            <div class="card-label">Governance</div>
+            <ul class="bullet-list">
+              <li>Session writes pass through allow, redact, quarantine or block outcomes.</li>
+              <li>Memory packs include source citations and one-hop relations.</li>
+              <li>Receipts are generated from metadata-only traces, not raw task text.</li>
+            </ul>
+          </article>
+          <article class="rough-card" data-rough="box">
+            <div class="card-label">Release surface</div>
+            <ul class="bullet-list">
+              <li>Python CLI and HTTP API share the same service path.</li>
+              <li>Docker image runs as a non-root user with a persistent data volume.</li>
+              <li>Read-only FastMCP adapter exposes context, memories, relations and receipts.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap wide-grid">
+        <div>
+          <div class="section-head">
+            <div class="eyebrow">Governed memory ladder</div>
+            <h2>Where ContextVault fits.</h2>
+          </div>
+          <div class="tier-list">
+            <div class="tier"><div class="tier-number">Tier 0</div><p><strong>Prompt memory.</strong> Good for one-off work; disappears across sessions.</p></div>
+            <div class="tier"><div class="tier-number">Tier 1</div><p><strong>Markdown notes.</strong> Useful for small projects; stale or conflicting notes remain a human problem.</p></div>
+            <div class="tier"><div class="tier-number">Tier 2</div><p><strong>ADRs and decision logs.</strong> Good for explicit architecture history; agents still infer what is current.</p></div>
+            <div class="tier"><div class="tier-number">Tier 3</div><p><strong>Structured Markdown.</strong> Adds types, dates and status; truth resolution is still mostly manual.</p></div>
+            <div class="tier"><div class="tier-number">Tier 4</div><p><strong>Local governed memory service.</strong> ContextVault: current memory packs, stale exclusion, write policy, citations and receipts.</p></div>
+            <div class="tier"><div class="tier-number">Tier 5</div><p><strong>Enterprise context platform.</strong> Ownership, permissions, compliance and organization-wide governance.</p></div>
+          </div>
+        </div>
+        <article class="rough-card" data-rough="box">
+          <div class="card-label">Evidence</div>
+          <ul class="evidence">
+            <li>47/47 automated tests</li>
+            <li>3/3 golden evaluation cases</li>
+            <li>Hosted GitHub Actions passing</li>
+            <li>Clean-clone verification completed</li>
+            <li>Docker smoke test as non-root UID 10001</li>
+            <li>Public v0.1.0 release</li>
+          </ul>
+          <div class="links-row">
+            <a href="https://github.com/panualaluusua/contextvault-memoryagent/actions/workflows/ci.yml" target="_blank" rel="noreferrer">CI ↗</a>
+            <a href="https://github.com/panualaluusua/contextvault-memoryagent/blob/main/EVALUATION.md" target="_blank" rel="noreferrer">Evaluation ↗</a>
+            <a href="https://github.com/panualaluusua/contextvault-memoryagent/blob/main/docs/CURRENT_STATUS.md" target="_blank" rel="noreferrer">Status ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap wide-grid">
+        <div class="section-head">
+          <div class="eyebrow">Boundaries</div>
+          <h2>What this prototype intentionally does not claim.</h2>
+        </div>
+        <div class="body-copy">
+          <p>ContextVault is not a replacement for repo documentation, ADRs, cross-repo catalogs, vector search or enterprise context platforms.</p>
+          <p>It is a local single-user portfolio prototype, not a multi-tenant production service. DuckDB is used for an embedded local store, and horizontal write scaling is explicitly out of scope.</p>
+          <p>The measured evaluation is synthetic and deterministic. It validates memory-system behavior and citation contracts, not model quality or business impact.</p>
+          <div class="links-row">
+            <a href="../index.html#work">Back to portfolio</a>
+            <a href="https://github.com/panualaluusua/contextvault-memoryagent/blob/main/README.md" target="_blank" rel="noreferrer">README ↗</a>
+            <a href="https://github.com/panualaluusua/contextvault-memoryagent/blob/main/docs/architecture/contextvault-architecture.svg" target="_blank" rel="noreferrer">Architecture ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <hr class="footer-rule">
+    <div class="wrap footer-inner">
+      <span>© 2026 Panu Alaluusua</span>
+      <span>Built as a static portfolio case study.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      function ensureSvg(el) {
+        var svg = el.querySelector(':scope > svg.rough-overlay');
+        if (!svg) {
+          svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          svg.setAttribute('class', 'rough-overlay');
+          el.prepend(svg);
+        }
+        return svg;
+      }
+
+      function drawBox(el) {
+        var svg = ensureSvg(el);
+        svg.innerHTML = '';
+        var rect = el.getBoundingClientRect();
+        if (!window.rough || rect.width < 2 || rect.height < 2) return;
+        svg.setAttribute('viewBox', '0 0 ' + rect.width + ' ' + rect.height);
+        var rc = rough.svg(svg);
+        var strokeWidth = parseFloat(el.dataset.roughWidth) || 1.4;
+        var roughness = parseFloat(el.dataset.roughRoughness) || 0.55;
+        var bowing = parseFloat(el.dataset.roughBowing) || 0.3;
+        var base = rc.rectangle(1, 1, rect.width - 2, rect.height - 2, {
+          fill: 'none', stroke: '#2c2a26', strokeWidth: strokeWidth, roughness: roughness, bowing: bowing
+        });
+        base.setAttribute('class', 'rr-default');
+        svg.appendChild(base);
+        var hover = rc.rectangle(1, 1, rect.width - 2, rect.height - 2, {
+          fill: 'none', stroke: '#5b6c8c', strokeWidth: strokeWidth + .2, roughness: roughness + .2, bowing: bowing
+        });
+        hover.setAttribute('class', 'rr-hover');
+        svg.appendChild(hover);
+      }
+
+      function redrawAll() {
+        document.querySelectorAll('[data-rough="box"]').forEach(drawBox);
+      }
+
+      window.addEventListener('load', redrawAll);
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(redrawAll, 120);
+      });
+      if ('ResizeObserver' in window) {
+        var ro = new ResizeObserver(redrawAll);
+        document.querySelectorAll('[data-rough]').forEach(function (el) { ro.observe(el); });
+      }
+    })();
+  </script>
+</body>
+</html>

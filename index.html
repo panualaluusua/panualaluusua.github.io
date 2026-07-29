@@ -124,6 +124,16 @@
 
     /* ── Work ── */
     .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--gap); }
+    .featured-system { padding: clamp(24px, 5vw, 38px); margin-bottom: 28px; }
+    .featured-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(240px, .85fr); gap: clamp(24px, 5vw, 44px); align-items: start; }
+    .featured-copy h3 { font-size: clamp(24px, 4vw, 36px); line-height: 1.1; margin: 8px 0 14px; }
+    .featured-copy p { font-family: var(--font-ui); color: var(--ink-body); font-size: 16px; line-height: 1.55; margin-bottom: 14px; }
+    .featured-copy .decision { color: var(--ink); }
+    .context-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 22px; }
+    .context-tags span { font-family: var(--font-body); font-size: 14px; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 1px; }
+    .featured-visual img { display: block; width: 100%; height: auto; margin-bottom: 18px; }
+    .evidence-list { display: grid; gap: 10px; padding-top: 14px; border-top: 1px solid var(--rule); }
+    .evidence-list div { font-family: var(--font-body); font-size: 15px; color: var(--ink-soft); }
     .case-status { font-family: var(--font-body); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); }
     .case p { font-family: var(--font-ui); font-size: 15px; color: var(--ink-body); line-height: 1.5; }
     .case .decision { color: var(--ink); }
@@ -182,6 +192,7 @@
       .nav-links { gap: 16px; font-size: 14px; }
       section { padding: 52px 0; }
       .hero { padding: 36px 0 48px; }
+      .featured-layout { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -256,20 +267,39 @@
           <h2>The same engineering principles, built in public.</h2>
           <p>A small selection of systems that demonstrate reliability, traceability and operational control. Work in progress and known limitations are labelled explicitly.</p>
         </div>
-        <div class="work-grid">
-          <article class="case rough-card" data-rough="box">
-            <div class="case-status">Published v0.1.0 · Agent memory</div>
-            <h3>ContextVault</h3>
-            <p>AI agents can act on stale, conflicting or unsafe memory.</p>
-            <p class="decision">I modelled memory as typed records with temporal validity, governed writes and decision receipts—not as an unbounded list of text chunks.</p>
-            <div class="proof">Hosted CI passing · Clean clone: 47/47 tests and 3/3 golden cases · Docker: non-root UID 10001 and health ok</div>
-            <div class="case-links">
-              <a href="https://github.com/panualaluusua/contextvault-memoryagent" target="_blank" rel="noreferrer">Repository ↗</a>
-              <a href="https://github.com/panualaluusua/contextvault-memoryagent/releases/tag/v0.1.0" target="_blank" rel="noreferrer">v0.1.0 release ↗</a>
-              <a href="https://github.com/panualaluusua/contextvault-memoryagent/actions/workflows/ci.yml" target="_blank" rel="noreferrer">CI ↗</a>
+        <article class="featured-system rough-card" data-rough="box">
+          <div class="featured-layout">
+            <div class="featured-copy">
+              <div class="case-status">Featured public system · ContextVault v0.1.0</div>
+              <h3>Governed memory for long-running agentic software work.</h3>
+              <p>Coding agents need several kinds of context: session state, repo context, cross-repo context, retrieval context and governed memory.</p>
+              <p class="decision">ContextVault focuses on the last layer: keeping architectural decisions, preferences and warnings current when work spans many sessions and multiple agents.</p>
+              <div class="context-tags" aria-label="Context layers">
+                <span>session state</span>
+                <span>repo context</span>
+                <span>cross-repo context</span>
+                <span>retrieval</span>
+                <span>governed memory</span>
+              </div>
+              <div class="case-links">
+                <a href="projects/contextvault.html">Read case study</a>
+                <a href="https://github.com/panualaluusua/contextvault-memoryagent" target="_blank" rel="noreferrer">GitHub ↗</a>
+                <a href="https://github.com/panualaluusua/contextvault-memoryagent/releases/tag/v0.1.0" target="_blank" rel="noreferrer">Release ↗</a>
+              </div>
             </div>
-          </article>
+            <div class="featured-visual">
+              <img src="assets/contextvault-architecture.svg" alt="ContextVault architecture: governed writes and Markdown records flow through DuckDB memory service into budgeted memory packs for CLI, HTTP and MCP adapters." loading="lazy">
+              <div class="evidence-list" aria-label="Evidence">
+                <div>47/47 automated tests</div>
+                <div>3/3 golden evaluation cases</div>
+                <div>Hosted CI and clean-clone verification</div>
+                <div>CLI, HTTP, Docker and read-only MCP</div>
+              </div>
+            </div>
+          </div>
+        </article>
 
+        <div class="work-grid">
           <article class="case rough-card" data-rough="box">
             <div class="case-status">Published hackathon build · Agent workflow &amp; MCP</div>
             <h3>Information Digest — Azure Hackathon</h3>
